@@ -1,4 +1,3 @@
-<h1>Hi</h1>
 <?php
 
 /**
@@ -53,10 +52,6 @@ $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
-$test = DB::select('select * from konzerte where id < 10');
-foreach($test as $ech){
-    echo $ech->title."<br>";
-}
 $response->send();
 
 $kernel->terminate($request, $response);
