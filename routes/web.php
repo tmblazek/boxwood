@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	$konzerte = \App\Models\konzerte::all();
+    return view('welcome', ['konzerte' => $konzerte]);
 });

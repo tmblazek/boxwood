@@ -20,6 +20,11 @@
         </ul>
 </div>
 </div>
+<ul>
+  @foreach ($konzerte as $kon)
+    <li>{{$kon->title}}</li>
+      @endforeach
+  </ul>
 <main class="main-content">
 <div class="fullwidth-block gallery">
     <div class="container">
