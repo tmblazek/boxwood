@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
-	$konzerte = \App\Models\konzerte::all();
-    return view('welcome', ['konzerte' => $konzerte]);
+
+	$konzerte = DB::table('konzerte')->where('start_t', '>=', date('Y-m-d') )->orderBy('start_t', 'asc')->take(3);
+    return view('welcome', ['konzerte' => $konzerte->get(), 'body_class'=>'header-collapse']);
 });

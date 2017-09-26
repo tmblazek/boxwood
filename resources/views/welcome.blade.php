@@ -22,7 +22,7 @@
 </div>
 <ul>
   @foreach ($konzerte as $kon)
-    <li>{{$kon->title}}</li>
+    <li>{{$kon->title}}, {{$kon->start_t}}</li>
       @endforeach
   </ul>
 <main class="main-content">

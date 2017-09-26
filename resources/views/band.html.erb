@@ -1,0 +1,91 @@
+<%
+meta title: "Die Band"
+meta description: "Paddy's Return stellt sich vor - Die Band und ihre Mitglieder Günther Hackl, Xandi Tichy, Gregor Lötsch, Michael Strasser und Thomas Blazek"
+%>
+<main class="main" itemscope itemtype="http://schema.org/MusicGroup">
+	<div class="page-title">
+		<% @band_bio.each do |bb| %>
+			<% cache bb do %>
+		<h1 class=" text-center" itemprop="name"><%=bb.name %></h1>
+
+	</div>
+
+
+	<div class="fullwidth-block" data-bg-color="#191919">
+      <div class="container text-center">
+
+
+		<meta itemprop="genre" content="Irish Folk">
+		<%= image_tag bb.photo.url,itemprop: "image", class: "photo"%>	  
+		<div class="col-xs-12 large-padding">
+			<div style="font-size:80%" class="text-center">Photo: <%=bb.photocredit.to_s %></div>
+		</div> 
+
+
+
+		<div class="col-xs-12 text-center" itemprop="description"><%=bb.long_desc.html_safe%>
+
+		</div>
+
+
+	</div>
+	<%end%>
+		<% if can? :manage, :all %>
+	<%= link_to "Neue Biographie anlegen", new_biography_path %><%= link_to "Edit", edit_biography_path(bb) %>  <%= link_to "Löschen", biography_path(bb), method: :delete, data: {confirm: 'Are you sure?'} %> 
+	<% end %>
+	<% end %>
+	</div>
+  <div class="fullwidth-block" data-bg-color="#343434">
+      <div class="container">
+	<h2 class="title-page text-center h-padded">Die Mitglieder</h2>
+	<div class="row-fluid clearfix boxed">
+
+		<% @member_bio.shuffle.each_slice(2) do |s| %>
+		<div class="row">
+			<% s.each_with_index do |b, ind| %>
+
+			
+						
+			<div class="col-xs-12 col-sm-6 <%= 'col-sm-offset-3' if s.length == 1 %> text-center" itemprop="member" itemscope itemtype="http://schema.org/Person">
+
+				<div class="col-xs-12">
+					<% if can? :manage, :all %>
+						<%= link_to "Edit", edit_biography_path(b) %>  <%= link_to "Löschen", biography_path(b), method: :delete, data: {confirm: 'Are you sure?'} %> <% end %>
+					<% cache b do %>
+					<div class="col-xs-12"> <!-- name -->
+
+						<h3 class="title-page text-center" itemprop="name"><%=b.name %></h3>
+						
+					</div> <!-- /name -->
+
+					<% unless b.photo_file_name.nil? %>
+					<div class="col-sm-12 title-padding"> <!-- Photo -->
+						<%= image_tag b.photo.url(:medium),itemprop: "image", class: "photo"%>
+
+						<div style="font-size:80%" class="text-center">Photo: <%=b.photocredit.to_s %></div>
+					</div> <!-- Close Photo-->
+					<% end %>
+
+					<div  itemprop="description">
+						<div class="col-sm-12">
+							<%=b.long_desc.html_safe%>
+						</div>
+
+						<div class="col-xs-12">
+							<b>Instrumente: </b><%=b.instruments%>
+						</div>
+
+					</div><!-- description-->
+								<% end %>
+				</div> <!--/offset -->
+			</div>
+
+			<% end %>
+
+		</div>
+
+		<% end %>
+	</div>
+      </div>
+  </div>
+  </main>
