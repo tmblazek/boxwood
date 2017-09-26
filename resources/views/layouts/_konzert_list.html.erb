@@ -1,0 +1,19 @@
+<% if konzert.empty? %>
+
+<div class="boxed-thin"></div>
+<div class="row-fluid clearfix">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="title-page text-center">Wir arbeiten derzeit an neuen Terminen!</h3>
+		</div>
+		<div class="panel-body">
+			Wenn Sie per Email informiert werden wollen, wenden Sie sich bitte diese email: <%=mail_to "info@paddysreturn.com", nil,encode: "javascript"%>
+		</div>
+	</div>
+</div>
+<%end%>
+
+<% konzert.each do |k| %>
+<%= render partial: "konzerte/konzert", locals: {k: k}%>
+<% end %>
+
