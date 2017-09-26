@@ -33,7 +33,7 @@
                       <!-- BAND -->
                       <div class="col-md-8">
                             <h2> Willkommen!</h2>
-
+              {{ Html::image('/data/system/announcements/photos/000/000/011/original/orpheum_darkened@2x.jpg', 'alt', array( 'width' => 70, 'height' => 70 )) }}
                                   <%= @band_bio.short_desc.html_safe unless @band_bio.nil?%>
 
 
