@@ -1,28 +1,20 @@
 @extends('layouts/app')
 
 @section('content')
-    <%
-    meta title: "Willkommen"
-    meta description: "Paddy's Return - Irish Folk Musik aus Wien. Die Band besteht aus Günther Hackl, Xandi Tichy, Gregor Lötsch, Michael Strasser und Thomas Blazek"
-    og title: "Paddy's Return"
-    og url: "http://www.paddysreturn.com"
-    og description: @band_bio.short_desc.html_safe
-    unless @band_bio.nil? || @band_bio.photo_file_name.nil?
-    og image: @band_bio.photo.url
-    end
-    %>
     <!-- TITLE -->
 
     <div class="hero">
         <div class="slider">
             <ul class="slides">
-    <%=render "announcements/title_page"%>
-        </ul>
+                @component('announcements_title', ['announcements'=>$announcements])
+                @endcomponent
+
+            </ul>
 </div>
 </div>
 <ul>
-  @foreach ($konzerte as $kon)
-    <li>{{$kon->title}}, {{$kon->start_t}}</li>
+  @foreach ($announcements as $kon)
+    <li>{{$kon->photo_file_name}}</li>
       @endforeach
   </ul>
 <main class="main-content">
@@ -41,8 +33,6 @@
                       <!-- BAND -->
                       <div class="col-md-8">
                             <h2> Willkommen!</h2>
-
-
 
                                   <%= @band_bio.short_desc.html_safe unless @band_bio.nil?%>
 
