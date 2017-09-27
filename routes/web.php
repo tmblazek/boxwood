@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-function html_safe($in_string)
+function emails_html_safe($in_string)
 {
     $pattern = '/[a-z0-9_\-\+]+@[a-z0-9\-]+\.([a-z]{2,3})(?:\.[a-z]{2})?/i';
     preg_match_all($pattern, $in_string, $matches);
@@ -31,7 +31,7 @@ Route::get('/', function () {
 });
 Route::get('/stpatricksnight', function () {
    $blog = DB::table('pages')->where('id', 14)->first();
-   $blog->content = html_safe($blog->content);
+   $blog->content = emails_html_safe($blog->content);
    $body_class = "";
    return view('info', ['page'=> $blog]);
 });
