@@ -1,13 +1,5 @@
-<%
-if params[:jahr].nil?
-	meta title: "Konzerte"
-elsif params[:monat].nil?
-	meta title: "Konzerte "+params[:jahr]
-else
-	meta title: "Konzerte "+params[:monat]+" "+params[:jahr]
-end
-meta description: "Die Konzerte der Wiener Irish Folk Band Paddy's Return"
-%>
+@extends('layouts/app')
+@section('content')
     <main class="main-content">
         <div class="fullwidth-block" >
             <div class="container" >
@@ -21,52 +13,33 @@ meta description: "Die Konzerte der Wiener Irish Folk Band Paddy's Return"
 		</div>
 		<div class="">
 			<div class="btn-group" role="group">
-				<% if can? :inspect, Konzert %>
-					<%if can? :manage, Konzert %>
-						<%= link_to '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neues Konzert'.html_safe, new_konzert_path, :class=> "btn btn-primary"%>
+			<!--link_to '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neues Konzert'.html_safe, new_konzert_path, :class=> "btn btn-primary"%>
 					<% end %>
 					<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
-						<%= @button_label%>	<span class="caret"></span>
+						 @button_label%>	<span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
-						<li role="presentation"><%= link_to 'Ausblenden', konzerte_path(:no_hidden=>"true"), role: "menuitem", tabindex: "-1" %></li>
-						<li role="presentation"><%= link_to 'Alle zeigen', konzerte_path(:show_past=>"true"), role: "menuitem", tabindex: "-1" %></li>
-						<li role="presentation"><%= link_to 'Zukünftige zeigen', konzerte_path,  role: "menuitem", tabindex: "-1" %></li>
+						<li role="presentation">< link_to 'Ausblenden', konzerte_path(:no_hidden=>"true"), role: "menuitem", tabindex: "-1" %></li>
+						<li role="presentation"> link_to 'Alle zeigen', konzerte_path(:show_past=>"true"), role: "menuitem", tabindex: "-1" %></li>
+						<li role="presentation">< link_to 'Zukünftige zeigen', konzerte_path,  role: "menuitem", tabindex: "-1" %></li>
 					</ul>
 				<% end %>
-
+-->
 			</div>
 			<div class="btn-group" role="group">
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-					<%= params[:jahr].nil? ? "Nach Jahr filtern" : params[:jahr] %>
+					{{(null === app('request')->input('jahr')) ?  "Nach Jahr filtern" : app('request')->input('jahr')}}
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-					<li role="presentation"><a role="menuitem" tabindex="-1" href="<%=konzerte_path%>">Alle Konzerte anzeigen</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="{{url('/konzerte')}}">Alle Konzerte anzeigen</a></li>
 					<li role="presentation" class="divider"></li>
-					<% @jahre.each do |j| %>
-						<li role="presentation"><%= link_to j.to_s+ " ("+@vielfachheit_jahr[j].to_s+")", :jahr=>j.to_s, role: "menuitem", tabindex: "-1" %></li>
-					<% end %>
+					@foreach($jahre as $j)
+						<li role="presentation"><a href="{{url('/konzerte?jahr='.$j)}}">{{$j}}</a></li>
+					@endforeach
 				</ul>
 
-				<% unless params[:jahr].nil? %>
-					<div class="btn-group" role="group">
-						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
-								<%= params[:monat].nil? ? "Nach Monat filtern" : params[:monat] %>
-								<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
-								<li role="presentation"><a role="menuitem" tabindex="-1" href="<%=konzerte_path%>">Alle Konzerte Anzeigen</a></li>
-								<li role="presentation"><%= link_to "Alle Konzerte im Jahr "+params[:jahr]+" anzeigen", :jahr=>params[:jahr]%></li>
-								<li role="presentation" class="divider"></li>
-								<% @monate.each do |j| %>
-									<li role="presentation"><%= link_to j.to_s+ " ("+@vielfachheit_monat[j].to_s+")", :jahr=>params[:jahr], :monat=>j.to_s%></li>
-								<% end %>
-							</ul>
-						</div>
-					</div>
-				<%end%>
+
 
 			</div>
 		</div>
@@ -74,15 +47,18 @@ meta description: "Die Konzerte der Wiener Irish Folk Band Paddy's Return"
             </div>
     <div class="fullwidth gallery" data-bg-color="#191919">
         <div class="container">
-		<% if params[:no_hidden] != 'true' and can? :inspect, Konzert %>
-			<h2> <%= @unpub_header%> </h2>
-			<%= render partial: "konzert_list", locals: {konzert: @unpublished} unless @unpublished.empty?%>
+		<!--if params[:no_hidden] != 'true' and can? :inspect, Konzert %>
+			<h2>  @unpub_header%> </h2>
+			 render partial: "konzert_list", locals: {konzert: @unpublished} unless @unpublished.empty?%>
 			<h2> Veröffentlichte Konzerte </h2>
-		<% end %>
+		<% end %>-->
     <h3>Zukünftige Konzerte</h3>
-		<%= render partial: "konzert_list", locals: {konzert: @konzerte.select{|k| k.end_t.future?}} %>
+			@component('konzerte_list', ['konzerte'=>$konzerte->filter(function($kon){return $kon->start_t>=date('Y-m-d');})])
+				@endcomponent
     <h3>Vergangene Konzerte</h3>
-		<%= render partial: "konzert_list", locals: {konzert: @konzerte.select{|k| !k.end_t.future?}} %>
+			@component('konzerte_list', ['konzerte'=>$konzerte->filter(function($kon){return $kon->start_t<date('Y-m-d');})])
+			@endcomponent
         </div>
   </div>
    </main>
+   @endsection
