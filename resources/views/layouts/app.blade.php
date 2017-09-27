@@ -52,5 +52,52 @@
 
 
     @yield('content')
+
+			      <footer class="site-footer">
+				        <div class="container">
+
+                    <div class="col-sm-12">
+                        <img src="/assets/brand2.png" alt="Site Name">
+					              <address>
+                            Obkirchergasse 38/4/8,                             1190, Wien <br>
+                            Österreich<br>
+                            <%=mail_cleanup("webmaster@paddysreturn.com").html_safe%>
+
+						            </address>
+                        <div class="social-links">
+						                <a href="https://www.facebook.com/paddysreturnvienna"><i class="fa fa-facebook-square"></i></a>
+					              </div> <!-- .social-links -->
+					          </div>
+
+
+
+	                  <div class="col-sm-12">
+
+			                  <p class="copy">Copyright 2017 Paddy's Return. Designed by Themezy. All right reserved</p>
+                        <%= link_to "Log in", login_path %>
+	                  </div>
+                </div>
+			      </footer> <!-- .site-footer -->
+
+		    </div> <!-- #site-content -->
+
+
+        <!-- Piwik -->
+        <script type="text/javascript">
+         var _paq = _paq || [];
+         // tracker methods like "setCustomDimension" should be called before "trackPageView"
+         _paq.push(['trackPageView']);
+         _paq.push(['enableLinkTracking']);
+         (function() {
+             var u="//piwik-inachos.rhcloud.com/analytics/piwik/";
+             _paq.push(['setTrackerUrl', u+'piwik.php']);
+             _paq.push(['setSiteId', '1']);
+             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+             g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+         })();
+        </script>
+        <!-- End Piwik Code -->
+
+
 </body>
 </html>

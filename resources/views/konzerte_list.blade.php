@@ -1,5 +1,5 @@
-<% if konzert.empty? %>
 
+@if(count($konzerte)==0)
 <div class="boxed-thin"></div>
 <div class="row-fluid clearfix">
 	<div class="panel panel-default">
@@ -11,9 +11,10 @@
 		</div>
 	</div>
 </div>
-<%end%>
+@else
+@foreach ($konzerte as $kon)
+@component('konzert_item', ['konzert'=>$kon])
+@endcomponent
+@endforeach
 
-<% konzert.each do |k| %>
-<%= render partial: "konzerte/konzert", locals: {k: k}%>
-<% end %>
-
+@endif
