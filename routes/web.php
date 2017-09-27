@@ -48,7 +48,7 @@ Route::get('/konzerte', function (){
 });
 Route::get('/konzerte/{id}', function($id)
 {
-    $konzert = DB::table('konzerte')->where('id', $id);
+    $konzert = DB::table('konzerte')->where('id', '=', $id)->first();
 
 
    return view('konzerte', ['konzert'=>$konzert]);
