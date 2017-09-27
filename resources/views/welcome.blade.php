@@ -12,39 +12,21 @@
             </ul>
 </div>
 </div>
-<ul>
-  @foreach ($announcements as $kon)
-    <li>{{$kon->photo_file_name}}</li>
-      @endforeach
-  </ul>
 <main class="main-content">
 <div class="fullwidth-block gallery">
     <div class="container">
           <!-- BODY -->
-          <% if can? :manage, :all %>
-              <div class="fullwidth-block">
-                    <%= render "adminpanel"%>
-              </div>
-          <% end %>
-
-          <div class="fullwidth-block">
-                <%= User.last.lastlogin if can? :read, Setlist %>
-                <div>
                       <!-- BAND -->
                       <div class="col-md-8">
                             <h2> Willkommen!</h2>
-              {{ Html::image('/data/system/announcements/photos/000/000/011/original/orpheum_darkened@2x.jpg', 'alt', array( 'width' => 70, 'height' => 70 )) }}
-                                  <%= @band_bio.short_desc.html_safe unless @band_bio.nil?%>
-
-
+                {{$band_bio->short_desc}}
 
                 <div class="fullwidth-block">
 
                     <h2>Kommende Konzerte </h2>
 
-                        <% cache @konzerte do %>
-                                    <%= render partial: "konzerte/konzert_list", locals: {konzert: @konzerte} %>
-                                <% end %>
+                        @component('konzerte_list', ['konzerte'=>$konzerte])
+                            @endcomponent
 
                             </div>
             </div>
