@@ -24,9 +24,10 @@
 //}
 Route::get('/', function () {
     $band_bio = DB::table('biographies')->where('frontpage', 'true')->first();
+    $recordings = DB::table('recordings')->get();
     $announcements = DB::table('announcements')->where('public','=', 'true')->where('pub_start', '<=', date('Y-m-d'))->where('pub_end', '>=', date('Y-m-d'))->get();
 	$konzerte = DB::table('konzerte')->where('public', 'true')->where('hidden', 'false')->where('start_t', '>=', date('Y-m-d') )->orderBy('start_t', 'asc')->take(3);
-    return view('welcome', ['konzerte' => $konzerte->get(), 'body_class'=>'header-collapse', 'announcements'=>$announcements, 'band_bio'=>$band_bio]);
+    return view('welcome', ['konzerte' => $konzerte->get(), 'body_class'=>'header-collapse', 'announcements'=>$announcements, 'band_bio'=>$band_bio, 'recordings'=>$recordings]);
 });
 Route::get('/stpatricksnight', function () {
    $blog = DB::table('pages')->where('id', 14)->first();
@@ -37,3 +38,5 @@ Route::get('/stpatricksnight', function () {
 Route::get('foo', 'Photos\AdminController@method');
 Route::get('/konzerte', 'KonzertController@index');
 Route::get('/konzerte/{id}', 'KonzertController@show');
+Route::get('/musik', 'recordings@index');
+Route::get('/musik/{id}', 'recordings@show');
