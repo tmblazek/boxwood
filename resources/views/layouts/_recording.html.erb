@@ -1,0 +1,14 @@
+
+
+<!--     <h3 class=""><%recording.title %> </h3>-->
+  
+      <% if can? :manage, :all %>
+      <%= link_to '<b>Bearbeiten</b>'.html_safe, edit_recording_path(recording) %>    <%= link_to '<b style="font-color:red">Löschen</b>'.html_safe, recording_path(recording), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+
+
+  	<div class="embed-responsive embed-responsive-4by3">
+  		<iframe  class="embed-responsive-item" src="<%=recording.embed%>" allowfullscreen></iframe>
+
+  </div>
+

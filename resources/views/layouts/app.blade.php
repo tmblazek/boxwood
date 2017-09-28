@@ -43,11 +43,11 @@
 						            <button type="button" class="toggle-menu"><i class="fa fa-bars"></i></button>
 						            <ul class="menu">
                             <!-- <li class="menu-item" ></li>-->
-                            <li class="menu-item{{isset($spn_tag) ? 'current-menu-item' : ''}}"><a href="{{url('/stpatricksnight')}}">St. Patrick's Night</a></li>
-                            <li  class="menu-item {{isset($konzerte_tag) ? 'current-menu-item' : ''}}"><a href="{{url('/konzerte')}}">Konzerte</a></li>
-                            <li  class="menu-item {{isset($band_tag) ? 'current-menu-item' : ''}}"><a href="{{url('/band')}}">Die Band</a></li>
-                            <li  class="menu-item {{isset($musik_tag) ? 'current-menu-item' : ''}}"><a href="{{url('/musik')}}">Musik</a></li>
-                            <li  class="menu-item {{isset($info_tag) ? 'current-menu-item' : ''}}"><a href="{{url('/informationen')}}">Informationen</a></li>
+                            <li class="menu-item {{ strpos(request()->path(),'stpatricksnight')!==false ? 'current-menu-item' : ''}}"><a href="{{url('/stpatricksnight')}}">St. Patrick's Night</a></li>
+                            <li  class="menu-item {{strpos(request()->path(),'konzerte')!==false ? 'current-menu-item' : ''}}"><a href="{{url('/konzerte')}}">Konzerte</a></li>
+                            <li  class="menu-item {{strpos(request()->path(),'band')!==false ?  'current-menu-item' : ''}}"><a href="{{url('/band')}}">Die Band</a></li>
+                            <li  class="menu-item {{strpos(request()->path(),'musik')!==false  ? 'current-menu-item' : ''}}"><a href="{{url('/musik')}}">Musik</a></li>
+                            <li  class="menu-item {{strpos(request()->path(),'informationen')!==false ?  'current-menu-item' : ''}}"><a href="{{url('/informationen')}}">Informationen</a></li>
 						            </ul> <!-- .menu -->
 					          </nav> <!-- .main-navigation -->
 					          <div class="mobile-menu"></div>

@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,21 +34,6 @@ Route::get('/stpatricksnight', function () {
    $body_class = "";
    return view('info', ['page'=> $blog]);
 });
-Route::get('/konzerte', function (){
-   $jahre = DB::table('konzerte')->pluck('start_t')->all();
-   $jahre = array_unique(array_map(function($j){
-      return substr($j, 0, 4);
-   }, $jahre));
-   $konzerte = DB::table('konzerte')->where('public', 'true')->orderBy('start_t', 'desc')->get();
-   if (null !== app('request')->input('jahr')){
-        $konzerte = $konzerte->filter(function($kon){return substr($kon->start_t, 0, 4)== $_GET['jahr'];});
-    }
-   return view('konzerte_index', ['jahre'=>$jahre, 'konzerte'=>$konzerte]);
-});
-Route::get('/konzerte/{id}', function($id)
-{
-    $konzert = DB::table('konzerte')->where('id', '=', $id)->first();
-
-
-   return view('konzerte', ['konzert'=>$konzert]);
-});
+Route::get('foo', 'Photos\AdminController@method');
+Route::get('/konzerte', 'KonzertController@index');
+Route::get('/konzerte/{id}', 'KonzertController@show');
