@@ -1,4 +1,9 @@
+@extends('layouts/app')
+@section('content')
 <div class="container-fluid pageboard">
-<%= render partial: "recording", locals: {recording: @recording} %>
+    <div class="embed-responsive embed-responsive-4by3">
+        <iframe  class="embed-responsive-item" src="{{$recording->embed}}" allowfullscreen></iframe>
 
-  </div>
+    </div>
+</div>
+@section('content')
