@@ -1,3 +1,5 @@
+@extends('layouts/app')
+@section('content')
 <div class="page-title">
     <h2 class="text-center">Musik</h1>
   </div>
@@ -19,3 +21,4 @@
 @endforeach
   </div>
 
+@endsection
