@@ -1,6 +1,6 @@
 @extends('layouts/app')
 @section('content')
-@section('PageTitle', {{$recording->title}})
+@section('PageTitle', $recording->title)
 
 <div class="container-fluid pageboard">
     <div class="embed-responsive embed-responsive-4by3">
