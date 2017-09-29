@@ -11,5 +11,6 @@
             </div>
             <div class="col-xs-12">
             @unless($page->datei_file_name=="")
+                <a href="{{asset('/system/pages/photos/000/000/'.sprintf("%03d", $page->id).'/original/'.$page->datei_file_name) }}">{{$page->datei_file_name}}</a>
             @endunless
             <!-- link_to @page.datei_file_name, @page.datei.url unless @page.datei_file_name.nil? -->
