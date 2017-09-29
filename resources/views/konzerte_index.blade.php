@@ -1,4 +1,6 @@
 @extends('layouts/app')
+@section('PageTitle', 'Konzerte')
+
 @section('content')
     <main class="main-content">
         <div class="fullwidth-block" >

@@ -1,4 +1,6 @@
 @extends('layouts/app')
+@section('PageTitle', 'Musik')
+
 @section('content')
     <main class="main">
         <div class="page-title">
