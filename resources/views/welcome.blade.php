@@ -1,4 +1,5 @@
 @extends('layouts/app')
+@section('PageTitle', 'Paddy\'s Return')
 
 @section('content')
     <!-- TITLE -->

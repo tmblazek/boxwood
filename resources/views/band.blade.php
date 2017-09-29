@@ -1,4 +1,6 @@
 @extends('layouts/app')
+@section('PageTitle', 'Die Band')
+
 @section('content')
     <main class="main" itemscope itemtype="http://schema.org/MusicGroup">
         <div class="page-title">

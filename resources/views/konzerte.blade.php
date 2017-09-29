@@ -1,4 +1,6 @@
 @extends('layouts/app')
+@section('PageTitle', 'Konzert')
+
 @section('content')
 
     <main class="main-content">
