@@ -1,6 +1,8 @@
 @extends('layouts/app')
-@section('PageTitle', 'Paddy\'s Return')
-
+@section('PageTitle', 'Paddy’s Return')
+@section('description')
+    Paddy’s Return - Pure Irish Folk Music in Wien!
+    @endsection
 @section('content')
     <!-- TITLE -->
 

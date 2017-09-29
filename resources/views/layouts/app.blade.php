@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta content="Paddy's Return - @yield('PageTitle')" property="og:title" />
+<meta name="description" content="@yield('description')">
     <title>@yield('PageTitle')</title>
 
 
@@ -43,7 +44,7 @@
 						            <button type="button" class="toggle-menu"><i class="fa fa-bars"></i></button>
 						            <ul class="menu">
                             <!-- <li class="menu-item" ></li>-->
-                            <li class="menu-item {{ strpos(request()->path(),'stpatricksnight')!==false ? 'current-menu-item' : ''}}"><a href="{{url('/stpatricksnight')}}">St. Patrick's Night</a></li>
+                            <li class="menu-item {{ strpos(request()->path(),'stpatricksnight')!==false ? 'current-menu-item' : ''}}"><a href="{{url('/stpatricksnight')}}">St. Patrick’s Night</a></li>
                             <li  class="menu-item {{strpos(request()->path(),'konzerte')!==false ? 'current-menu-item' : ''}}"><a href="{{url('/konzerte')}}">Konzerte</a></li>
                             <li  class="menu-item {{strpos(request()->path(),'band')!==false ?  'current-menu-item' : ''}}"><a href="{{url('/band')}}">Die Band</a></li>
                             <li  class="menu-item {{strpos(request()->path(),'musik')!==false  ? 'current-menu-item' : ''}}"><a href="{{url('/musik')}}">Musik</a></li>

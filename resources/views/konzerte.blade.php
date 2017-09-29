@@ -1,6 +1,8 @@
 @extends('layouts/app')
-@section('PageTitle', 'Konzert')
-
+@section('PageTitle', $konzert->title)
+@section('description')
+    Paddy’s Return - {{$konzert->title}}
+@endsection
 @section('content')
 
     <main class="main-content">
