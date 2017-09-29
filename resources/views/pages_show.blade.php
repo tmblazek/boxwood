@@ -1,5 +1,5 @@
 @extends('layouts/app')
-@section('PageTitle', {{$page->title}})
+@section('PageTitle', $page->title)
 
 @section('content')
     <div class="row-fluid clearfix">
