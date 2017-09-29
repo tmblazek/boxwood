@@ -33,10 +33,13 @@ Route::get('/stpatricksnight', function () {
    $blog = DB::table('pages')->where('id', 14)->first();
    //$blog->content = emails_html_safe($blog->content);
    $body_class = "";
-   return view('info', ['page'=> $blog]);
+   return view('pages_show', ['page'=> $blog]);
 });
 Route::get('foo', 'Photos\AdminController@method');
 Route::get('/konzerte', 'KonzertController@index');
 Route::get('/konzerte/{id}', 'KonzertController@show');
 Route::get('/musik', 'recordings@index');
 Route::get('/musik/{id}', 'recordings@show');
+Route::get('/informationen', 'PagesController@index');
+Route::get('/pages/{id}', 'PagesController@show');
+Route::get('/band', 'BiographiesController@band');
