@@ -43,3 +43,6 @@ Route::get('/musik/{id}', 'recordings@show');
 Route::get('/informationen', 'PagesController@index');
 Route::get('/pages/{id}', 'PagesController@show');
 Route::get('/band', 'BiographiesController@band');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
