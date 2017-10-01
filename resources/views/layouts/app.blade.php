@@ -27,7 +27,6 @@
     {{ \Html::script('js/plugins.js') }}
     {{ \Html::style('fonts/font-awesome.min.css') }}
     {{ \Html::style('css/glyphicons.css.css') }}
-    {{ \Html::style('css/style.css') }}
     {{ \Html::style('css/application.css.css') }}
 
 </head>
@@ -49,6 +48,13 @@
                             <li  class="menu-item {{strpos(request()->path(),'band')!==false ?  'current-menu-item' : ''}}"><a href="{{url('/band')}}">Die Band</a></li>
                             <li  class="menu-item {{strpos(request()->path(),'musik')!==false  ? 'current-menu-item' : ''}}"><a href="{{url('/musik')}}">Musik</a></li>
                             <li  class="menu-item {{strpos(request()->path(),'informationen')!==false ?  'current-menu-item' : ''}}"><a href="{{url('/informationen')}}">Informationen</a></li>
+                                        @can('read')
+                                        <li class="menu-item"><a href="internal/tunes">Tunebook</a></li>
+                                            <li class="menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+
+                                        @endcan
 						            </ul> <!-- .menu -->
 					          </nav> <!-- .main-navigation -->
 					          <div class="mobile-menu"></div>
@@ -88,22 +94,21 @@
 		    </div> <!-- #site-content -->
 
 
-        <!-- Piwik -->
-        <script type="text/javascript">
-         var _paq = _paq || [];
-         // tracker methods like "setCustomDimension" should be called before "trackPageView"
-         _paq.push(['trackPageView']);
-         _paq.push(['enableLinkTracking']);
-         (function() {
-             var u="//piwik-inachos.rhcloud.com/analytics/piwik/";
-             _paq.push(['setTrackerUrl', u+'piwik.php']);
-             _paq.push(['setSiteId', '1']);
-             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-             g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-         })();
-        </script>
-        <!-- End Piwik Code -->
-
+            <!-- Piwik -->
+            <script type="text/javascript">
+                var _paq = _paq || [];
+                /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+                _paq.push(['trackPageView']);
+                _paq.push(['enableLinkTracking']);
+                (function() {
+                    var u="//analytics.paddysreturn.com/piwik/";
+                    _paq.push(['setTrackerUrl', u+'piwik.php']);
+                    _paq.push(['setSiteId', '1']);
+                    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+                })();
+            </script>
+            <!-- End Piwik Code -->
 
 </body>
 </html>

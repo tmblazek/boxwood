@@ -46,3 +46,9 @@ Route::get('/band', 'BiographiesController@band');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth', 'clearance'])->group(function () {
+    Route::get('/internal/tunes', 'TuneController@index');
+    Route::get('/internal/tunes/{id}', 'TuneController@show');
+    Route::get('/internal/setlists', 'SetlistController@index');
+    Route::get('/internal/setlists/{id}', 'SetlistController@show');
+});

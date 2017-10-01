@@ -22,7 +22,7 @@
                 <!-- BAND -->
                 <div class="col-md-8">
                     <h2> Willkommen!</h2>
-                    {{$band_bio->short_desc}}
+                    {!! $band_bio->short_desc  !!}
 
                     <div class="fullwidth-block">
 
