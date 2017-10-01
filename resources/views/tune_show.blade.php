@@ -38,7 +38,7 @@
                 <hr>
                 <strong> Verwendet in {{count($tune->setlists)}} Setlists: </strong><br>|
                 @foreach($tune->setlists as $setlist)
-                    {{$setlist->full_title()}} |
+                    <a href="/internal/setlists/{{$setlist->id}}">{{$setlist->full_title()}}</a> |
                 @endforeach
 
 

@@ -45,5 +45,8 @@ class Konzerte extends Model
 
     protected $guarded = [];
 
-        
+    public function setlist()
+    {
+        return $this->hasOne('App\Models\Setlist');
+    }
 }

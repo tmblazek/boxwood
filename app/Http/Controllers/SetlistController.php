@@ -13,7 +13,7 @@ class SetlistController extends Controller
      */
     public function index()
     {
-        $setlists = Setlist::all();
+        $setlists = Setlist::all()->sortByDesc(function ($item) {return $item->konzert->start_t;});
         return view('setlist_index', ['setlists' => $setlists]);
     }
 
@@ -49,7 +49,10 @@ class SetlistController extends Controller
         $setlist = Setlist::find($id);
         return view("setlist_show", ['setlist'=>$setlist]);
     }
-
+    public function druckvorschau($id){
+        $setlist = Setlist::find($id);
+        return view("setlist_druckvorschau", ['setlist'=>$setlist]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
