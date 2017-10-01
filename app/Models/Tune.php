@@ -26,5 +26,19 @@ class Tune extends Model
 
     protected $guarded = [];
 
-        
+    public function setlists()
+    {
+        return $this->belongsToMany('App\Models\Setlist', 'setlists_tunes');
+    }
+
+    /**
+     *
+     */
+    public function abc_for_js(){
+        $abc = $this->abc;
+        $abc = str_replace("\r", "", $abc);
+        $abc = str_replace("\n", "\\n", $abc);
+        $abc = str_replace("\"", "\\\"", $abc);
+        return $abc;
+    }
 }

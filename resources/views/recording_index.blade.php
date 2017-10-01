@@ -1,6 +1,8 @@
 @extends('layouts/app')
 @section('PageTitle', 'Musik')
-
+@section('description')
+    Paddy’s Return - Liste unserer Aufnahmen.
+@endsection
 @section('content')
     <main class="main">
         <div class="page-title">

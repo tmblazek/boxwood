@@ -1,6 +1,8 @@
 @extends('layouts/app')
 @section('PageTitle', 'Die Band')
-
+@section('description')
+    Paddy’s Return - Die Band.
+@endsection
 @section('content')
     <main class="main" itemscope itemtype="http://schema.org/MusicGroup">
         <div class="page-title">

@@ -1,6 +1,8 @@
 @extends('layouts/app')
-@section('PageTitle', 'Paddy\'s Return')
-
+@section('PageTitle', 'Paddy’s Return')
+@section('description')
+    Paddy’s Return - Pure Irish Folk Music in Wien!
+    @endsection
 @section('content')
     <!-- TITLE -->
 
@@ -20,7 +22,7 @@
                 <!-- BAND -->
                 <div class="col-md-8">
                     <h2> Willkommen!</h2>
-                    {{$band_bio->short_desc}}
+                    {!! $band_bio->short_desc  !!}
 
                     <div class="fullwidth-block">
 

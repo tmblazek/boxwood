@@ -1,6 +1,6 @@
 @extends('layouts/app')
 @section('PageTitle', 'Informationen')
-
+@section('description', 'Paddy’s Return - Inforationen')
 @section('content')
     <main class="main">
         <div class="fullwidth-block">

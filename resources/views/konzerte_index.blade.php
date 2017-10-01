@@ -1,6 +1,8 @@
 @extends('layouts/app')
 @section('PageTitle', 'Konzerte')
-
+@section('description')
+	Paddy’s Return - Liste unserer Konzerte.
+@endsection
 @section('content')
     <main class="main-content">
         <div class="fullwidth-block" >
