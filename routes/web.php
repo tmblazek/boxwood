@@ -51,4 +51,5 @@ Route::middleware(['auth', 'clearance'])->group(function () {
     Route::get('/internal/tunes/{id}', 'TuneController@show');
     Route::get('/internal/setlists', 'SetlistController@index');
     Route::get('/internal/setlists/{id}', 'SetlistController@show');
+    Route::get('/internal/setlists/{id}/druckvorschau', 'SetlistController@druckvorschau');
 });
