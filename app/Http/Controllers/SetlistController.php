@@ -53,6 +53,10 @@ class SetlistController extends Controller
         $setlist = Setlist::find($id);
         return view("setlist_druckvorschau", ['setlist'=>$setlist]);
     }
+    public function michi($id){
+        $setlist = Setlist::find($id);
+        return view("michi_druckvorschau", ['setlist'=>$setlist]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
