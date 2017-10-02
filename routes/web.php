@@ -52,4 +52,5 @@ Route::middleware(['auth', 'clearance'])->group(function () {
     Route::get('/internal/setlists', 'SetlistController@index');
     Route::get('/internal/setlists/{id}', 'SetlistController@show');
     Route::get('/internal/setlists/{id}/druckvorschau', 'SetlistController@druckvorschau');
+    Route::get('/internal/setlists/{id}/michi', 'SetlistController@michi');
 });

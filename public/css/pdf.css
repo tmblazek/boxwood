@@ -1,0 +1,23 @@
+body {
+    background-color: white;
+    color: #2c2c2c;
+}
+h1,h2,h3,h4,h5 {
+    color: #2c2c2c;
+}
+.menu-item {
+    color: #2c2c2c;
+}
+.main-navigation .menu a {
+    color: #2c2c2c;
+}
+hr {
+    border-color: #000;
+}
+.site-header .container {
+    *zoom: 1;
+
+    border-bottom: 0px solid rgba(0, 0, 0, 0.3); }
+.site-footer {
+    background-color: white;
+}

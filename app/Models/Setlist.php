@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Konzerte;
+use App\Models\Tune;
 /**
  * Class Setlist
  */
@@ -31,5 +33,15 @@ class Setlist extends Model
     public function konzert()
     {
         return $this->belongsTo('App\Models\Konzerte');
+    }
+    public function getTunesOrdered(){
+        $ids =array_map('intval', explode("tune", str_replace("|", "", $this->setlist)));
+        $out = new Collection();
+        foreach($ids as $id){
+            if ($id === 0)
+                continue;
+            $out->push(Tune::find($id));
+        }
+        return $out;
     }
 }
