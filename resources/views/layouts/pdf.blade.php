@@ -28,7 +28,7 @@
     {{ \Html::style('css/application.css.css') }}
     {{ \Html::style('css/pdf.css') }}
 </head>
-<body>
+<body style="background-color:#FFFFFF; color:#000000;font-size: normal;">
 <div id="site-content">
     <header class="site-header">
 
@@ -52,7 +52,6 @@
             </tr>
         </table>
     </header> <!-- .site-header -->
-
     @yield('content')
 
 </div> <!-- #site-content -->
