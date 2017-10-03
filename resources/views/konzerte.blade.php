@@ -68,13 +68,15 @@
             <div class="fullwidth-block" data-bg-color="#333333">
                 <div class="container">
                     <h2 class="text-center">Weiterführende Information</h2>
-                    @unless($konzert->dest=="" && nul == $konzert->plakat_file_name)
+                    @unless($konzert->dest=="" && null == $konzert->plakat_file_name)
                         <div class="col-sm-7 boxed">
 				<span itemprop="description">
+                    @unless($konzert->dest=="")
 						<h3 class="text-center title-page">Details</h3>
 
 						<div class="bordered boxed"></div>
                     {!! $konzert->dest !!}
+                        @endunless
 				</span>
                             @unless (null==$konzert->plakat_file_name)
 
