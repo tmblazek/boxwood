@@ -58,7 +58,7 @@
                                     width="100%"
                                     height="400"
                                     frameborder="0" style="border:0"
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB5YvMdV2-SzmE-mlQg6D7VAY7iRlYL5O4&q={{str_replace(' ', '+', $konzert->address.'+'.$konzert->postal.'+'.$konzert->city.'+'.$konzert->region.'+'.$konzert->country)}}">
+                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBP1L0FLWrrlxV4seiXeL8tOG7VyDCopFY&q={{str_replace(' ', '+', $konzert->address.'+'.$konzert->postal.'+'.$konzert->city.'+'.$konzert->region.'+'.$konzert->country)}}">
                             </iframe>
                         @endunless
                     </div>
