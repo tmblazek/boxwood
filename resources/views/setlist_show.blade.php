@@ -39,7 +39,7 @@
                 @endcomponent
 
                     @foreach($setlist->getTunesOrdered() as $index => $tune)
-                        @component('partial_tune_quer', ['tune'=>$tune, 'index'=>$index])
+                        @component('tunes.partial_tune_quer', ['tune'=>$tune, 'index'=>$index])
                             @endcomponent
                         @endforeach
 

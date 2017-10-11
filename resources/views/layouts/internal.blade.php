@@ -8,7 +8,15 @@
     <meta content="Paddy's Return - @yield('PageTitle')" property="og:title"/>
     <meta name="description" content="@yield('description')">
     <title>@yield('PageTitle')</title>
-
+    <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+    <script>
+        var options = {
+            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+            filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+            filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        };
+    </script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">

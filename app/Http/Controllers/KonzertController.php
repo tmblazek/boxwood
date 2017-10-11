@@ -23,12 +23,10 @@ class KonzertController extends Controller
         if (null !== app('request')->input('jahr')){
             $konzerte = $konzerte->filter(function($kon){return substr($kon->start_t, 0, 4)== $_GET['jahr'];});
         }
-        return view('konzerte_index', ['jahre'=>$jahre, 'konzerte'=>$konzerte]);
+        return view('konzerte.index', ['jahre'=>$jahre, 'konzerte'=>$konzerte]);
     }
     public function show($id){
-        $konzert = Konzerte::where('id', '=', $id)->first();
-
-
-        return view('konzerte', ['konzert'=>$konzert]);
+        $konzert = Konzerte::find($id);
+        return view('konzerte.show', ['konzert'=>$konzert]);
     }
 }

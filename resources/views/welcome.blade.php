@@ -28,7 +28,7 @@
 
                         <h2>Kommende Konzerte </h2>
 
-                        @component('konzerte_list', ['konzerte'=>$konzerte])
+                        @component('konzerte.list', ['konzerte'=>$konzerte])
                         @endcomponent
 
                     </div>
