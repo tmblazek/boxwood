@@ -35,10 +35,11 @@
                     {{$setlist->title}}
                 </h2>
                 <h2>Tunes </h2>
-                @component('template_quer')
+                {{$setlist->setlist}}
+                @component('tunes.template_quer')
                 @endcomponent
 
-                    @foreach($setlist->getTunesOrdered() as $index => $tune)
+                    @foreach($setlist->tunes as $index => $tune)
                         @component('tunes.partial_tune_quer', ['tune'=>$tune, 'index'=>$index])
                             @endcomponent
                         @endforeach

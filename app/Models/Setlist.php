@@ -34,6 +34,20 @@ class Setlist extends Model
     {
         return $this->belongsTo('App\Models\Konzerte');
     }
+    public function sync_tunes()
+    {
+        foreach($this->tunes as $t) {
+            $this->tunes()->detach($t);
+        }
+        foreach ($this->getTunesOrdered() as $t){
+            $this->tunes()->attach($t);
+        }
+        return 0;
+    }
+    public function tunes()
+    {
+        return $this->belongsToMany('App\Models\Tune', 'setlists_tunes');
+    }
     public function getTunesOrdered(){
         $ids =array_map('intval', explode("tune", str_replace("|", "", $this->setlist)));
         $out = new Collection();
