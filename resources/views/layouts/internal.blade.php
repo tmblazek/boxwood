@@ -27,7 +27,6 @@
     <!-- Styles -->
     {{ \Html::script('js/respond.min.js') }}
     {{ \Html::script('js/application.js') }}
-    {{ \Html::script('js/app-min.js') }}
     {{ \Html::script('js/jquery.ui.widget.js') }}
 
     {{ \Html::script('js/plugins.js') }}
