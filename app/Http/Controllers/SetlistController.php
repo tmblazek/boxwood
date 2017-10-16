@@ -14,7 +14,7 @@ class SetlistController extends Controller
     public function index()
     {
         $setlists = Setlist::all()->sortByDesc(function ($item) {return $item->konzert->start_t;});
-        return view('setlist.index', ['setlists' => $setlists]);
+        return view('setlists.index', ['setlists' => $setlists]);
     }
 
     /**
