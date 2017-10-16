@@ -49,7 +49,7 @@
                             <li  class="menu-item {{strpos(request()->path(),'musik')!==false  ? 'current-menu-item' : ''}}"><a href="{{url('/musik')}}">Musik</a></li>
                             <li  class="menu-item {{strpos(request()->path(),'informationen')!==false ?  'current-menu-item' : ''}}"><a href="{{url('/informationen')}}">Informationen</a></li>
                                         @can('read')
-                                        <li class="menu-item"><a href="internal/tunes">Tunebook</a></li>
+                                        <li class="menu-item"><a href="{{url('/internal/tunes')}}">Tunebook</a></li>
                                             <li class="menu-item"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
 
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
