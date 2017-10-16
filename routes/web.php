@@ -46,9 +46,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['auth', 'clearance'])->group(function () {
-    Route::resource('internal/tunes', 'TuneController');
-    Route::get('/internal/setlists', 'SetlistController@index');
-    Route::get('/internal/setlists/{id}', 'SetlistController@show');
+    Route::get('/internal/', function () {
+       $konzerte = [];
+       return view('internal_welcome');
+    });
+    Route::resource('/internal/users', 'UserController');
+    Route::resource('/internal/tunes', 'TuneController');
+    Route::resource('/internal/setlists', 'SetlistController');
     Route::get('/internal/setlists/{id}/druckvorschau', 'SetlistController@druckvorschau');
     Route::get('/internal/setlists/{id}/michi', 'SetlistController@michi');
 });

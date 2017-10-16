@@ -46,6 +46,10 @@
                 <ul class="menu">
                     <!-- <li class="menu-item" ></li>-->
                     <li class="menu-item"><a href="/">Homepage</a></li>
+                    @hasrole('admin')
+                    <li class="menu-item {{strpos(request()->path(),'users')!==false ? 'current-menu-item' : ''}}"><a
+                                href="{{url('/internal/users')}}">User</a></li>
+                    @endhasrole
                     <li class="menu-item {{strpos(request()->path(),'konzerte')!==false ? 'current-menu-item' : ''}}"><a
                                 href="{{url('/konzerte')}}">Konzerte</a></li>
                     <li class="menu-item {{strpos(request()->path(),'tunes')!==false ?  'current-menu-item' : ''}}">
