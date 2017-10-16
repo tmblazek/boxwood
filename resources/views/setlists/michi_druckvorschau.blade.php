@@ -1,5 +1,5 @@
 
-    @extends('layouts/pdf')
+    @extends('layouts.pdf')
     @section('date', $setlist->konzert->start_t)
     @section('content')
 
