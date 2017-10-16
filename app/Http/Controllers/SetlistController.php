@@ -14,7 +14,7 @@ class SetlistController extends Controller
     public function index()
     {
         $setlists = Setlist::all()->sortByDesc(function ($item) {return $item->konzert->start_t;});
-        return view('setlist_index', ['setlists' => $setlists]);
+        return view('setlist.index', ['setlists' => $setlists]);
     }
 
     /**
@@ -47,15 +47,15 @@ class SetlistController extends Controller
     public function show($id)
     {
         $setlist = Setlist::find($id);
-        return view("setlist_show", ['setlist'=>$setlist]);
+        return view("setlists.show", ['setlist'=>$setlist]);
     }
     public function druckvorschau($id){
         $setlist = Setlist::find($id);
-        return view("setlist_druckvorschau", ['setlist'=>$setlist]);
+        return view("setlists.druckvorschau", ['setlist'=>$setlist]);
     }
     public function michi($id){
         $setlist = Setlist::find($id);
-        return view("michi_druckvorschau", ['setlist'=>$setlist]);
+        return view("setlists.michi_druckvorschau", ['setlist'=>$setlist]);
     }
     /**
      * Show the form for editing the specified resource.
