@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta content="Paddy's Return - @yield('PageTitle')" property="og:title" />
 <meta name="description" content="@yield('description')">
+    <meta name="google-site-verification" content="aiW8xq36-QU3Fnexp4zzySR-nk8wd4X1lBOuNROfua8" />
     <title>@yield('PageTitle')</title>
 
 
