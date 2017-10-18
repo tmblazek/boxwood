@@ -15,6 +15,16 @@
                 </div>
 
                 <div class="container">
+                    <p><b>Tunebook Generieren: </b>
+                        <a href="{{url('/internal/tunebook?tag='.app('request')->input('tag'))}}">Als Tunebook Anzeigen</a> |   <a href="{{url('/internal/tunebook?michi=true&tag='.app('request')->input('tag'))}}">Als Tunebook Anzeigen (Michi)</a>
+                    </p>
+
+                    <p><b>Filter By:</b>
+                    <a href="{{url('/internal/tunes')}}">Alle Tunes </a>|
+                    @foreach(App\Models\Tag::all() as $tag)
+                        <a href="{{url('/internal/tunes?tag='.$tag->name)}}">{{$tag->name}}</a> |
+                    @endforeach
+                    </p>
                     @foreach($tunes as $tune)
                         <h3>
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>

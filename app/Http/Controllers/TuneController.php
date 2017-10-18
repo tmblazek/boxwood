@@ -19,8 +19,29 @@ class TuneController extends Controller
      */
     public function index()
     {
-        $tunes = Tune::all()->sortBy('title');
+        if (null!== app('request')->input('tag')){
+            $tunes = Tune::find_by_tags(app('request')->input('tag'))->sortBy('title');
+        }
+        else
+        {$tunes = Tune::all()->sortBy('title');}
+
         return view('tunes.index', ['tunes'=>$tunes]);
+    }
+    public function tunebook()
+    {
+        if (null ===app('request')->input('tag')){
+            $title = 'Tunebook';
+        }
+        else{
+            $title = strtoupper(app('request')->input('tag'));
+        }
+        $tunes = Tune::find_by_tags(app('request')->input('tag'))->sortBy('title');
+        if ('true'!=app('request')->input('michi')){
+        return view('tunes.druckvorschau', ['tunes'=>$tunes, 'title'=>$title]);
+        }
+        else{
+            return view('tunes.michi_druckvorschau', ['tunes'=>$tunes, 'title'=>$title]);
+        }
     }
 
     /**

@@ -31,6 +31,9 @@
                 </div>
                 <h2 class="text-center">Setlist Infos </h2>
                 <div class="visible-print title-page">{{$tune->title}}</div>
+                @foreach($tune->get_tags() as $tag)
+                    {{$tag}} -
+                @endforeach
                 @component('tunes.template_quer')
                 @endcomponent
                 @component('tunes.partial_tune_quer', ['tune'=>$tune, 'index' => 0])
@@ -67,6 +70,7 @@
                             {!! nl2br($tune->abc) !!}
                             </code>
                         </div>
+            </div>
 
             </div>
     </main>
