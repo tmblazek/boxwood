@@ -20,6 +20,8 @@
             <div class="container">
                 <!-- BODY -->
                 <!-- BAND -->
+                <div class="col-xs-12 text-center"><div class="fb-like" data-href="https://www.facebook.com/paddysreturnvienna/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+                </div>
                 <div class="col-md-8">
                     <h2> Willkommen!</h2>
                     {!! $band_bio->short_desc  !!}

@@ -50,6 +50,20 @@ class Tune extends Model
         }
         return self::all()->filter(function($tune) use ($tag_name) {return Tagging::tagging_exists($tag_name, $tune->id);});
     }
+    public static function all_for_setlists(){
+        $ret = '[';
+        foreach(self::all() as $index=>$tune){
+            $ret = $ret.'"<div class=\"tune'.$tune->id.'\"><b>'.$tune->title.'</b><br><div class=\"sl_from_tags\">|';
+            foreach($tune->get_tags() as $tag){
+                $ret = $ret.$tag->name.'|';
+            }
+            $ret = $ret.'</div></div>"';
+            if($index < (Tune::all()->count() - 1)){
+                $ret = $ret.',';
+            }
+            $ret = $ret.'[';
+        }
+    }
     public function abc_for_js(){
         $abc = $this->abc;
         $abc = str_replace("\r", "", $abc);
