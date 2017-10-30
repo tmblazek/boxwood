@@ -20,8 +20,7 @@
             <div class="container">
                 <!-- BODY -->
                 <!-- BAND -->
-                <div class="col-xs-12 text-center"><div class="fb-like" data-href="https://www.facebook.com/paddysreturnvienna/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
-                </div>
+
                 <div class="col-md-8">
                     <h2> Willkommen!</h2>
                     {!! $band_bio->short_desc  !!}
@@ -34,13 +33,6 @@
                         @endcomponent
 
                     </div>
-                </div>
-                <div class="col-md-4">
-
-                    <!-- SOUND EXAMPLES -
-              <!-- ANNOUNCEMENTS -->
-
-
                     <h2> Musik</h2>
                     <div class="fullwidth-block" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
                         <meta itemprop="name" content="Paddy's Return - Up in the Air - Mug of Brown Ale">
@@ -52,6 +44,16 @@
                             </div>
                         @endforeach
                     </div>
+                </div>
+                <div class="col-md-4">
+
+                    <!-- SOUND EXAMPLES -
+              <!-- ANNOUNCEMENTS -->
+
+
+
+                    <h2>Facebook</h2>
+                    <div class="fb-page" data-href="https://www.facebook.com/paddysreturnvienna/" data-tabs="timeline" data-width="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/paddysreturnvienna/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/paddysreturnvienna/">Paddy&#039;s Return</a></blockquote></div>
                 </div>
 
             </div>
