@@ -66,6 +66,8 @@ class SetlistController extends Controller
     public function edit($id)
     {
         //
+        $setlist = Setlist::find($id);
+        return view('setlist.edit', array('setlist'=>$setlist));
     }
 
     /**
