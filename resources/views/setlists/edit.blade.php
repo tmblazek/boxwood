@@ -8,8 +8,8 @@
 
         {{ Form::model($setlist, array('route' => array('setlists.update', $setlist->id), 'method' => 'PUT')) }}
         {{ Form::submit('Edit the Setlist!', array('class' => 'btn btn-primary')) }}
-@component('setlists.form', ['setlist'=>$setlist])
-    @endcomponent
+        @component('setlists.form', ['setlist'=>$setlist])
+        @endcomponent
         {{ Form::close() }}
     </main>
     @endsection
