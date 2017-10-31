@@ -5,7 +5,6 @@
     </div>
     <main class="main">
         {{ Html::ul($errors->all()) }}
-
         {{ Form::model($setlist, array('route' => array('setlists.update', $setlist->id), 'method' => 'PUT')) }}
         {{ Form::submit('Edit the Setlist!', array('class' => 'btn btn-primary')) }}
         @component('setlists.form', ['setlist'=>$setlist])
