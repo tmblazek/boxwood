@@ -111,7 +111,6 @@ class AnnouncementController extends Controller
             'title' => 'required',
             'pub_start' => 'required',
             'pub_end' => 'required',
-            'text' => 'required',
             'link' => 'required',
         );
         $validator = Validator::make(Input::all(), $rules);
