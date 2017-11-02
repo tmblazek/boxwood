@@ -7,8 +7,8 @@
         <div class="fullwidth-block">
             <div class=" container">
                 <div class="page-header">
-                    <h1 class="title-page text-center konzert_listing">Setlist<br>
-                        <small class="mysmall">{{$setlist->konzert->start_t}}: {{$setlist->full_title()}}</small>
+                    <h1 class="title-page text-center konzert_listing">{{$setlist->full_title()}}<br>
+                        <small class="mysmall">{{$setlist->konzert->start_t}} </small>
                     </h1>
                 </div>
                 <div class="row text-right">
@@ -17,6 +17,22 @@
                                 data-toggle="dropdown" aria-expanded="true">
                             Drucken <span class="caret"></span>
                         </button>
+                    </div>
+                    <div class="btn-group" role="group">
+
+                        {{Html::linkAction('SetlistController@edit', 'Bearbeiten', $setlist->id,array('class' => 'btn btn-primary'))}}
+                        {{ Form::open(array('url' => 'internal/setlists/' . $setlist->id, 'class' => 'pull-right')) }}
+                        {{ Form::hidden('_method', 'DELETE') }}
+                        {{ Form::submit('Löschen  ', array('class' => 'btn btn-warning')) }}
+                        {{ Form::close() }}
+                        <!--<% link_to "Druckansicht", abc_tune_path(@tune), class: "btn btn-primary"%>
+                        <% if can? :manage, Tune %>
+                            <% link_to '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neuer Tune'.html_safe, new_tune_path, :class=> "btn btn-primary"%>
+                              <% link_to '<b>Bearbeiten</b>'.html_safe, edit_tune_path(@tune),
+                                class: "btn btn-primary"  %>
+                                <% link_to '<b style="font-color:red">Löschen</b>'.html_safe, tune_path(@tune),method: :delete,data: { confirm: 'Are you sure?' }, class: "btn btn-primary"  %>
+                                  <% end %>-->
+
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                             <li role="presentation"><a href="{{'/internal/setlists/'.$setlist->id.'/druckvorschau'}}"
                                                        class="menuitem" , tabindex="-1">Druckvorschau</a></li>
@@ -26,17 +42,7 @@
                                 <li role="presentation">< link_to 'Bodhrán Info'.html_safe, michi_setlist_path(@setlist, format: :pdf), role: "menuitem", tabindex: "-1"  %>    </li>-->
                         </ul>
                     </div>
-
-                </div>
-                <h2>
-                    <a href="{{'/konzerte/'.$setlist->konzert->id}}">{{$setlist->konzert->title}}</a>
-                </h2>
-                <h2>
-                    {{$setlist->title}}
-                </h2>
-                <h2>Tunes </h2>
-                {{$setlist->setlist}}
-                @component('tunes.template_quer')
+                    @component('tunes.template_quer')
                 @endcomponent
 
                     @foreach($setlist->tunes as $index => $tune)

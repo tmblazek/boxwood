@@ -7,16 +7,16 @@
 <div class="col-sm-4">
     <div class="form-group">
         {{ Form::label('konzert', 'Konzert') }}
-        {{ Form::select('konzert', (App\Models\Konzerte::all()->map(function($k){return $k->title;})), array('class' => 'form-control')) }}
+        {{ Form::select('konzert', (App\Models\Konzerte::all()->filter(function($k) use ($konzert) {return $k->setlist == null || $k->id==$konzert;})->mapWithKeys(function($k){return [$k->id => $k->title];})),$konzert, array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">
         {{ Form::label('setlist', 'setlist') }}
-        {{ Form::text('setlist', null, array('class' => 'form-control', 'id'=>'formsetlist')) }}
+        {{ Form::text('setlist', $setlist, array('class' => 'form-control', 'id'=>'formsetlist')) }}
     </div>
     <div class="form-group">
         {{ Form::label('title', 'Titel') }}
-        {{ Form::text('title', null, array('class' => 'form-control', 'id'=>'formsetlist')) }}
+        {{ Form::text('title', $title, array('class' => 'form-control', 'id'=>'formsetlist')) }}
     </div>
 
     <strong>Tuneablage: </strong>
@@ -27,15 +27,16 @@
     <div id="tune_list"></div>
 
 </div>
-{{ \Html::script('js/setlists.js') }}
+
 <script type="text/javascript">
 
-    window.tunes = {{App\Models\Tune::all_for_setlists()}};
+    window.tunes = {!!  App\Models\Tune::all_for_setlists() !!};
     window.paste_ready = false;
     window.tunes_in_setlist = [];
     window.active_tune = "";
     window.id_list = [];
     window.execl = false;
     window.last_added = -1;
+    execload();
 </script>
 

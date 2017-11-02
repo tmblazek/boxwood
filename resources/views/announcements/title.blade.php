@@ -4,13 +4,13 @@
 
 	          
         </div>
-        <li class="lazy-bg" data-background=" {{asset('/system/announcements/photos/000/000/'.sprintf("%03d", $a->id).'/original/'.$a->photo_file_name) }} ">
+        <li class="lazy-bg" data-background=" {{$a->photo_file_name }} ">
             <div class="container">
                 <h2 class="slide-title">  {{$a->title}}</h2>
                 <h3 class="slide-subtitle"> {{$a->message}} </h3>
                 <p class="slide-desc hidden-xs"> {{$a->text}}</p>
                
-                <a href="{{$a->link}}" class="button cut-corner">Mehr lesen</a>
+                <a href="{{$a->link}}" class="button cut-corner">Mehr</a>
             </div>
         </li>
 @endforeach

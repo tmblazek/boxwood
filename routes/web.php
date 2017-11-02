@@ -46,11 +46,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['auth', 'clearance'])->group(function () {
+    Route::resource('recordings', 'recordings');
     Route::get('/internal/', function () {
        $konzerte = [];
        return view('internal_welcome');
     });
     Route::resource('/internal/users', 'UserController');
+    Route::resource('/internal/announcements', 'AnnouncementController');
     Route::resource('/internal/tunes', 'TuneController');
     Route::resource('/internal/setlists', 'SetlistController');
     Route::get('/internal/setlists/{id}/druckvorschau', 'SetlistController@druckvorschau');

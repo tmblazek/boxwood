@@ -4,13 +4,32 @@
     Paddy’s Return - {{$konzert->title}}
 @endsection
 @section('content')
-
+    <div class="page-title">
+        <h1 class="text-center">{{$konzert->title}}</h1>
+    </div>
     <main class="main-content">
         <div class="fullwidth-block" data-bg-color="#191919">
+
             <div class="container">
 
                 <div class="row-fluid clearfix">
-
+@can('read')
+                    <div class="btn-group">
+                        @if(null!==$konzert->setlist)
+                            <a href="/internal/setlists/{{$konzert->setlist->id}}">
+                        <div class="btn btn-primary">
+                           Zur Setlist
+                        </div>
+                            </a>
+                            @else
+                            <a href="/internal/setlists/new?konzert={{$konzert->id}}">
+                                <div class="btn btn-primary">
+                                    Neue Setlist
+                                </div>
+                            </a>
+                            @endif
+                    </div>
+                    @endcan
                     <div class="col-xs-12 col-sm-7">
                         <div class="row-fluid clearfix">
                             <div class="event" itemscope itemtype="http://schema.org/MusicEvent">
@@ -23,7 +42,7 @@
                                 </div>
                                 <h3 class="entry-title"><span itemprop="name">{{$konzert->place}}</span></h3>
                                 <p><i>Beginn</i>: {{date_create($konzert->start_t)->format('H:i')}} Uhr<br>
-                                    <i>Ende</i>: </i>: {{date_create($konzert->end_t)->format('H:i')}} Uhr {{(date_create($konzert->start_t)->format('Y-m-d')==date_create($konzert->end_t)->format('Y-m-d')) ? '' :
+                                    <i>Ende</i>: {{date_create($konzert->end_t)->format('H:i')}} Uhr {{(date_create($konzert->start_t)->format('Y-m-d')==date_create($konzert->end_t)->format('Y-m-d')) ? '' :
 												'am '.date_create($konzert->end_t)->format('d.m.')}}</p>
 
                             </div> <!-- .event -->
@@ -96,10 +115,6 @@
                             @else
                                 <div class="col-xs-12 col-sm-7 boxed text-center">
                                     @endunless
-
-
-                                    <h3 class="title-page text-center">iCalendar</h3>
-                                    <div class="bordered boxed"></div>
                                     <h4 class="title-page text-center">QR-Code</h4>
                                     <img src="{{asset('/system/konzerte/qr_cs/000/000/'.sprintf("%03d", $konzert->id).'/original/qr_code.png')}}"
                                          class="photo">

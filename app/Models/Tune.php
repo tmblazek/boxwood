@@ -61,8 +61,10 @@ class Tune extends Model
             if($index < (Tune::all()->count() - 1)){
                 $ret = $ret.',';
             }
-            $ret = $ret.'[';
+
         }
+        $ret = $ret.']';
+        return $ret;
     }
     public function abc_for_js(){
         $abc = $this->abc;

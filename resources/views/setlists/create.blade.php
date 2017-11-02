@@ -5,11 +5,11 @@
     </div>
     <main class="main">
         {{ Html::ul($errors->all()) }}
-
-
         {{ Form::open(array('url' => '/internal/setlists')) }}
+
         {{ Form::submit('New Setlist!', array('class' => 'btn btn-primary')) }}
-        @component('setlists.form')
+
+        @component('setlists.form', ['setlist'=>$setlist->setlist, 'title'=>$setlist->title, 'konzert'=>$konzert])
         @endcomponent
         {{ Form::close() }}
     </main>

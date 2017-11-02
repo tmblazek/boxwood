@@ -11,20 +11,26 @@
 
 
         <div class="fullwidth-block">
+            <div class="container">
             @foreach($recordings as $key => $recording)
                 @unless ( ($key % 2 == 0) && ($key == (count($recordings)-1)))
                     <div class="col-sm-6">
-                        @else
+                @else
                             <div class="col-sm-6 col-sm-offset-3">
-                                @endunless
+                @endunless
                                 <div class="embed-responsive embed-responsive-4by3">
                                     <iframe class="embed-responsive-item" src="{{$recording->embed}}"
                                             allowfullscreen></iframe>
 
+
                                 </div>
+                                <p>
+                                    {!! $recording->desc !!}
+                                </p>
                             </div>
-                    </div>
+
                     @endforeach
+            </div>
         </div>
     </main>
 @endsection

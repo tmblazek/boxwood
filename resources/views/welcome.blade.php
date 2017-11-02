@@ -9,7 +9,7 @@
     <div class="hero">
         <div class="slider">
             <ul class="slides">
-                @component('announcements_title', ['announcements'=>$announcements])
+                @component('announcements.title', ['announcements'=>$announcements])
                 @endcomponent
 
             </ul>
@@ -22,6 +22,7 @@
                 <!-- BAND -->
 
                 <div class="col-md-8">
+                    <div class="col-xs-12">
                     <h2> Willkommen!</h2>
                     {!! $band_bio->short_desc  !!}
 
@@ -33,14 +34,20 @@
                         @endcomponent
 
                     </div>
-                    <h2> Musik</h2>
+                    </div>
                     <div class="fullwidth-block" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
+                        <div class="col-xs-12">                    <h2> Musik</h2></div>
                         <meta itemprop="name" content="Paddy's Return - Up in the Air - Mug of Brown Ale">
                         @foreach($recordings as $recording)
+                            <div class="col-sm-6">
                             <div class="embed-responsive embed-responsive-4by3">
                                 <iframe class="embed-responsive-item" src="{{$recording->embed}}"
                                         allowfullscreen></iframe>
 
+                            </div>
+                                <p>
+                                    {!! $recording->desc !!}
+                                </p>
                             </div>
                         @endforeach
                     </div>

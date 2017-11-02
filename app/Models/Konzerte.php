@@ -47,6 +47,6 @@ class Konzerte extends Model
 
     public function setlist()
     {
-        return $this->hasOne('App\Models\Setlist');
+        return $this->hasOne('App\Models\Setlist', 'konzert_id');
     }
 }
