@@ -31,6 +31,14 @@
 
 </head>
 <body class={{isset($body_class) ? $body_class : ''}}>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.10&appId=901309856712490';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 		    <div id="site-content">
             <header class="site-header">
                 <div class="container">

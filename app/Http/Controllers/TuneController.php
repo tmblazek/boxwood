@@ -70,7 +70,7 @@ class TuneController extends Controller
 
         // process the login
         if ($validator->fails()) {
-            return Redirect::to('tunes/new  ')
+            return Redirect::to('internal/tunes/new  ')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
@@ -87,7 +87,7 @@ class TuneController extends Controller
             $tune->save();
             // redirect
             Session::flash('message', 'Successfully updated Tune!');
-            return Redirect::to('internal/tunes');
+            return Redirect::to('internal/tunes/'.$tune->$id);
         }
     }
 
@@ -134,7 +134,7 @@ class TuneController extends Controller
 
         // process the login
         if ($validator->fails()) {
-            return Redirect::to('tunes/' . $id . '/edit')
+            return Redirect::to('internal/tunes/' . $id . '/edit')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
@@ -151,7 +151,7 @@ class TuneController extends Controller
             $tune->save();
             // redirect
             Session::flash('message', 'Successfully updated Tune!');
-            return Redirect::to('internal/tunes');
+            return Redirect::to('internal/tunes/'.$id);
         }
     }
 

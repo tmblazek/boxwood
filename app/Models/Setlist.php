@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Konzerte;
 use App\Models\Tune;
+
 /**
  * Class Setlist
  */
@@ -42,6 +43,7 @@ class Setlist extends Model
         foreach ($this->getTunesOrdered() as $t){
             $this->tunes()->attach($t);
         }
+        $this->save();
         return 0;
     }
     public function tunes()

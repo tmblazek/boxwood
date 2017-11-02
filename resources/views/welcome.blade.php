@@ -9,7 +9,7 @@
     <div class="hero">
         <div class="slider">
             <ul class="slides">
-                @component('announcements_title', ['announcements'=>$announcements])
+                @component('announcements.title', ['announcements'=>$announcements])
                 @endcomponent
 
             </ul>
@@ -20,7 +20,9 @@
             <div class="container">
                 <!-- BODY -->
                 <!-- BAND -->
+
                 <div class="col-md-8">
+                    <div class="col-xs-12">
                     <h2> Willkommen!</h2>
                     {!! $band_bio->short_desc  !!}
 
@@ -32,6 +34,23 @@
                         @endcomponent
 
                     </div>
+                    </div>
+                    <div class="fullwidth-block" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
+                        <div class="col-xs-12">                    <h2> Musik</h2></div>
+                        <meta itemprop="name" content="Paddy's Return - Up in the Air - Mug of Brown Ale">
+                        @foreach($recordings as $recording)
+                            <div class="col-sm-6">
+                            <div class="embed-responsive embed-responsive-4by3">
+                                <iframe class="embed-responsive-item" src="{{$recording->embed}}"
+                                        allowfullscreen></iframe>
+
+                            </div>
+                                <p>
+                                    {!! $recording->desc !!}
+                                </p>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
                 <div class="col-md-4">
 
@@ -39,17 +58,9 @@
               <!-- ANNOUNCEMENTS -->
 
 
-                    <h2> Musik</h2>
-                    <div class="fullwidth-block" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
-                        <meta itemprop="name" content="Paddy's Return - Up in the Air - Mug of Brown Ale">
-                        @foreach($recordings as $recording)
-                            <div class="embed-responsive embed-responsive-4by3">
-                                <iframe class="embed-responsive-item" src="{{$recording->embed}}"
-                                        allowfullscreen></iframe>
 
-                            </div>
-                        @endforeach
-                    </div>
+                    <h2>Facebook</h2>
+                    <div class="fb-page" data-href="https://www.facebook.com/paddysreturnvienna/" data-tabs="timeline" data-width="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/paddysreturnvienna/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/paddysreturnvienna/">Paddy&#039;s Return</a></blockquote></div>
                 </div>
 
             </div>
