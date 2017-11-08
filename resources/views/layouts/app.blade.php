@@ -23,11 +23,14 @@
     {{ \Html::script('js/respond.min.js') }}
     {{ \Html::script('js/application.js') }}
     {{ \Html::script('js/jquery.ui.widget.js') }}
+    {{ \Html::script('js/ie-support/html5.js') }}
+    {{ \Html::script('js/ie-support/respond.js') }}
 
     {{ \Html::script('js/plugins.js') }}
     {{ \Html::style('fonts/font-awesome.min.css') }}
     {{ \Html::style('css/glyphicons.css.css') }}
     {{ \Html::style('css/application.css.css') }}
+
 
 </head>
 <body class={{isset($body_class) ? $body_class : ''}}>
