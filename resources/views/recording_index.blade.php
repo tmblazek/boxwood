@@ -12,6 +12,8 @@
 
         <div class="fullwidth-block">
             <div class="container">
+                <div class="col-sm-8">
+                    <h2>Videos</h2>
             @foreach($recordings as $key => $recording)
                 @unless ( ($key % 2 == 0) && ($key == (count($recordings)-1)))
                     <div class="col-sm-6">
@@ -30,7 +32,13 @@
                             </div>
 
                     @endforeach
+                    </div>
+
             </div>
+                <div class="col-sm-4">
+                    <h2>Soundcloud</h2>
+                    <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/91088186&amp;color=%23406454&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>
+                </div>
         </div>
     </main>
 @endsection

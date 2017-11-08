@@ -10,7 +10,7 @@
 <meta name="description" content="@yield('description')">
     <meta name="google-site-verification" content="aiW8xq36-QU3Fnexp4zzySR-nk8wd4X1lBOuNROfua8" />
     <title>@yield('PageTitle')</title>
-
+    <meta name="yandex-verification" content="a4669ff48dc5eca5" />
 
 
     <!-- Fonts -->
@@ -23,11 +23,14 @@
     {{ \Html::script('js/respond.min.js') }}
     {{ \Html::script('js/application.js') }}
     {{ \Html::script('js/jquery.ui.widget.js') }}
+    {{ \Html::script('js/ie-support/html5.js') }}
+    {{ \Html::script('js/ie-support/respond.js') }}
 
     {{ \Html::script('js/plugins.js') }}
     {{ \Html::style('fonts/font-awesome.min.css') }}
     {{ \Html::style('css/glyphicons.css.css') }}
     {{ \Html::style('css/application.css.css') }}
+
 
 </head>
 <body class={{isset($body_class) ? $body_class : ''}}>
