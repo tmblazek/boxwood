@@ -10,7 +10,7 @@
 <meta name="description" content="@yield('description')">
     <meta name="google-site-verification" content="aiW8xq36-QU3Fnexp4zzySR-nk8wd4X1lBOuNROfua8" />
     <title>@yield('PageTitle')</title>
-
+    <meta name="yandex-verification" content="a4669ff48dc5eca5" />
 
 
     <!-- Fonts -->
