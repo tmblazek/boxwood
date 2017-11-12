@@ -22,7 +22,7 @@
                         </div>
                             </a>
                             @else
-                            <a href="/internal/setlists/new?konzert={{$konzert->id}}">
+                            <a href="/internal/setlists/create?konzert={{$konzert->id}}">
                                 <div class="btn btn-primary">
                                     Neue Setlist
                                 </div>
