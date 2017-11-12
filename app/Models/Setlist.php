@@ -37,13 +37,12 @@ class Setlist extends Model
     }
     public function sync_tunes()
     {
-        foreach($this->tunes as $t) {
-            $this->tunes()->detach($t);
-        }
+
+            $this->tunes()->detach();
+
         foreach ($this->getTunesOrdered() as $t){
             $this->tunes()->attach($t);
         }
-        $this->save();
         return 0;
     }
     public function tunes()

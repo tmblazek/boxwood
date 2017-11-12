@@ -46,7 +46,7 @@ class Tune extends Model
     }
     public static function find_by_tags($tag_name){
         if (null === Tag::where('name', $tag_name)->get()->first()){
-            return self::all();
+            return self::all()->filter(function ($t){return !(substr($t->title,0,3)=== "---");});
         }
         return self::all()->filter(function($tune) use ($tag_name) {return Tagging::tagging_exists($tag_name, $tune->id);});
     }
