@@ -8,9 +8,9 @@
             <div class="container">
                 <h2 class="slide-title">  {{$a->title}}</h2>
                 <h3 class="slide-subtitle"> {{$a->message}} </h3>
-                <p class="slide-desc hidden-xs"> {{$a->text}}</p>
+                <p class="slide-desc hidden-xs hidden-sm"> {{$a->text}}</p>
                
-                <a href="{{$a->link}}" class="button cut-corner">Mehr</a>
+                <a href="{{$a->link}}" class="button cut-corner">Mehr Lesen</a>
             </div>
         </li>
 @endforeach
