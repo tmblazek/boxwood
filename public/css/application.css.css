@@ -10,14 +10,12 @@
 /* line 45, sass/libs/_normalize.scss */
 @font-face {
   font-family: "Glanchlo";
-  src: url("/css/fonts/Glanchlo.eot");
-  src: url("/css/fonts/Glanchlo.eot?#iefix") format("embedded-opentype"), url("/fonts/Glanchlo.woff2") format("woff2"), url("/fonts/Glanchlo.woff") format("woff"), url("/fonts/Glanchlo.ttf") format("truetype"); }
-
+  src: url("/fonts/Glanchlo.eot");
+  src: url("/fonts/Glanchlo.eot?#iefix") format("embedded-opentype"), url("/fonts/Glanchlo.woff2") format("woff2"), url("/fonts/Glanchlo.woff") format("woff"), url("/fonts/Glanchlo.ttf") format("truetype"); }
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url("/fonts/glyphicons-halflings-regular.eot");
   src: url("/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/assets/glyphicons-halflings-regular.woff") format("woff"), url("/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
-
 article,
 aside,
 details,
@@ -394,31 +392,25 @@ body {
   from {
     opacity: .5;
     -webkit-transform: scale(0.75); }
-
   50% {
     opacity: 1;
     -webkit-transform: scale(1); }
-
   to {
     opacity: .5;
     -webkit-transform: scale(0.75); } }
-
 @keyframes imagelightbox-loading {
   from {
     opacity: .5;
     -webkit-transform: scale(0.75);
     transform: scale(0.75); }
-
   50% {
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1); }
-
   to {
     opacity: .5;
     -webkit-transform: scale(0.75);
     transform: scale(0.75); } }
-
 /* OVERLAY */
 /* line 127, sass/libs/_component.scss */
 #imagelightbox-overlay {
@@ -603,17 +595,13 @@ body {
 @-webkit-keyframes fade-in {
   from {
     opacity: 0; }
-
   to {
     opacity: 1; } }
-
 @keyframes fade-in {
   from {
     opacity: 0; }
-
   to {
     opacity: 1; } }
-
 @media only screen and (max-width: 41.25em) {
   /* line 317, sass/libs/_component.scss */
   #container {
@@ -1556,7 +1544,6 @@ body {
     margin-left: 100%; } }
 @-ms-viewport {
   width: device-width; }
-
 /* line 125, sass/libs/bootstrap-grid/_grid.scss */
 .visible-xs, .visible-sm, .visible-md, .visible-lg {
   display: none !important; }
@@ -2323,7 +2310,7 @@ body {
   /*min-height: 50px;*/
   background-color: #171717;
   background-size: 100%;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat; }
   @media screen and (max-width: 520px) {
     .slider .slides li {
@@ -2839,3 +2826,5 @@ body {
   color: #fd5927; }
 
 /*# sourceMappingURL=style.css.map */
+
+/*# sourceMappingURL=application.css.css.map */
