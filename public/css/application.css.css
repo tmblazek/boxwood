@@ -92,6 +92,9 @@ h2 {
   margin: 0.83em 0;
   line-height: normal; }
 
+h2.entry-title {
+  padding-top: 0px; }
+
 /* line 171, sass/libs/_normalize.scss */
 h3 {
   font-size: 1.17em;
@@ -2065,6 +2068,7 @@ body {
 /* line 123, sass/layout/_content.scss */
 .content .post .entry-title a {
   color: white;
+  padding: 0px;
   text-decoration: none;
   -webkit-transition: .3s ease;
   transition: .3s ease; }
