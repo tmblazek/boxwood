@@ -92,7 +92,7 @@
                 <address>
                     Obkirchergasse 38/4/8, 1190, Wien <br>
                     Österreich<br>
-                    {{Html::mailto('webmaster@gmail.com')}}
+                    {{Html::mailto('webmaster@paddysreturn.com')}}
 
                 </address>
                 <div class="social-links">
