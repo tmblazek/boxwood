@@ -51,7 +51,8 @@
                          <!-- ANNOUNCEMENTS -->
 
                     <div class="fullwidth-block">
-
+                        <h2>Facebook</h2>
+                        <div class="fb-page" data-href="https://www.facebook.com/paddysreturnvienna/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/paddysreturnvienna/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/paddysreturnvienna/">Paddy&#039;s Return</a></blockquote></div>
                         <h2>Kommende Konzerte </h2>
 
                         @component('konzerte.list', ['konzerte'=>$konzerte])
@@ -59,8 +60,7 @@
 
                     </div>
 
-                    <h2>Facebook</h2>
-                    <div class="fb-page" data-href="https://www.facebook.com/paddysreturnvienna/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/paddysreturnvienna/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/paddysreturnvienna/">Paddy&#039;s Return</a></blockquote></div>
+                  
                     
                     <h2>Email Kontakt</h2>
                     {{Html::mailto('info@padddysreturn.com')}}
