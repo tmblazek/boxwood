@@ -77,7 +77,7 @@ class SetlistController extends Controller
             $setlist->sync_tunes();
             $setlist->save();
             Session::flash('message', 'Successfully updated Setlist!');
-            return Redirect::to('internal/internal/setlists/'.$setlist->id);
+            return Redirect::to('/internal/setlists/'.$setlist->id);
         }
     }
 
@@ -145,6 +145,7 @@ class SetlistController extends Controller
             $setlist->konzert()->dissociate();
             $setlist->konzert()->associate($konzert);
 
+            $setlist->save();
             $setlist->sync_tunes();
             $setlist->save();
             Session::flash('message', 'Successfully updated Setlist!');
