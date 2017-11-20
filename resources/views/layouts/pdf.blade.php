@@ -41,16 +41,7 @@
 
             }
         </style>
-        <table width="100%">
-            <tr>
-                <td  width="30%" style="text-align:left;font-family: Glanchlo">
-                    Paddy's Return </td><td width="40%" style="text-align:center;font-family: Glanchlo"> {{$setlist->konzert->title.", ".$setlist->konzert->start_t}}
-                </td>
-                <td width="30%" style="text-align:right;">
-                    Page <span class="page"></span> of <span class="topage"></span>
-                </td>
-            </tr>
-        </table>
+
     </header> <!-- .site-header -->
     @yield('content')
 
