@@ -1,6 +1,8 @@
 <thead>
-<tr>
-    <th colspan="5" class="text-center" style="font-family: Glanchlo;font-size:16pt;">Paddy's Return: {{$setlist->full_title()}}</th>
+<tr style="font-weight:normal;">
+
+    <th colspan="4" class="text-center" style="font-family: Glanchlo;font-size:14pt;font-weight:normal;"><div class="text-left" style="float: left; width: 40%">Paddy's Return</div><div class="text-right" style="float: right; width: 60%"> {{$setlist->konzert->title}} - </div></th>
+        <th colspan="1" class="text-center" style="font-family: Glanchlo;font-size:14pt;font-weight:normal;"><div class="text-left" style="float: left; width: 70%">&nbsp;{{$setlist->konzert->start_t}}</div><div class="text-right" style="float: right; width: 30%"><span class="page">Seite </span></div></th>
 </tr>
 <tr>
 <th valign="top" width="5%" style="text-align:center;">Nr</th>

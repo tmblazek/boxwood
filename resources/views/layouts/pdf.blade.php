@@ -33,6 +33,10 @@
     <header class="site-header">
 
         <style>
+            th {
+                text-align:right;
+                border-bottom:1px solid black;
+            }
             td {
                 text-align:right;font-size:110%;border-bottom:1px solid black;
                 padding-bottom: 3px;

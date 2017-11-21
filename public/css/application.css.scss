@@ -1986,10 +1986,6 @@ body {
     padding-top: 2em;
   }
 
-  h1:first-child {
-    page-break-before: avoid;
-    counter-reset: page;
-  }
 
   #print-header {
     display: block;
@@ -1998,7 +1994,7 @@ body {
     left:0pt;
     right: 0pt;
   }
-  span.page::after {
+  thead span.page:after {
     counter-increment: page;
     content: counter(page);
   }
@@ -2007,6 +2003,7 @@ body {
     height: 287mm;
   }
 }
+
 .content .post {
   position: relative;
   margin-bottom: 30px;
