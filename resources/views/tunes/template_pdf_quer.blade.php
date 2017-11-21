@@ -1,8 +1,8 @@
 <thead>
 <tr style="font-weight:normal;">
 
-    <th colspan="4" class="text-center" style="font-family: Glanchlo;font-size:14pt;font-weight:normal;"><div class="text-left" style="float: left; width: 40%">Paddy's Return</div><div class="text-right" style="float: right; width: 60%"> {{$setlist->konzert->title}} - </div></th>
-        <th colspan="1" class="text-center" style="font-family: Glanchlo;font-size:14pt;font-weight:normal;"><div class="text-left" style="float: left; width: 70%">&nbsp;{{$setlist->konzert->start_t}}</div><div class="text-right" style="float: right; width: 30%"><span class="page">Seite </span></div></th>
+    <th colspan="4" class="text-left" style="font-family: Glanchlo;font-size:14pt;font-weight:normal;">Tunebook Paddy's Return</th>
+    <th colspan="1" class="text-right" style="font-family: Glanchlo;font-size:14pt;font-weight:normal;"><span class="page">Seite </span></th>
 </tr>
 <tr>
 <th valign="top" width="5%" style="text-align:center;">Nr</th>
