@@ -1976,6 +1976,34 @@ body {
   -ms-transform: translate3d(0, 0, 0); }
 
 /* line 74, sass/layout/_content.scss */
+
+
+
+@media print {
+
+  h1 {
+    page-break-before: always;
+    padding-top: 2em;
+  }
+
+
+  #print-header {
+    display: block;
+    position: fixed;
+    top: 0pt;
+    left:0pt;
+    right: 0pt;
+  }
+  thead span.page:after {
+    counter-increment: page;
+    content: counter(page);
+  }
+  html, body {
+    width: 210mm;
+    height: 287mm;
+  }
+}
+
 .content .post {
   position: relative;
   margin-bottom: 30px;

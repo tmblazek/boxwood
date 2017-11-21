@@ -3,6 +3,12 @@
     @section('content')
 
         <table style="width:100%">
+            <thead>
+            <tr style="font-weight:normal;">
+
+                <th colspan="5" class="text-left" style="font-family: Glanchlo;font-size:14pt;font-weight:normal;">Tunebook Paddy's Return</th>
+                <th colspan="1" class="text-right" style="font-family: Glanchlo;font-size:14pt;font-weight:normal;"><span class="page">Seite </span></th>
+            </tr>
             <tr>
                 <th valign="top" width="10%" style="text-align:left;">Bodhrán</th>
                 <th valign="top" width="5%" style="text-align:center;">Nr</th>
@@ -11,7 +17,7 @@
                 <th valign="top" width="10%">Typ</th>
                 <th valign="top" width="35%"> Notizen</th>
             </tr>
-
+            </thead>
          @foreach($tunes as $index=>$tune)
 
             <div class="nobreak">
