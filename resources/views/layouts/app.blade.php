@@ -16,20 +16,10 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- Styles -->
-    {{ \Html::script('js/respond.min.js') }}
-    {{ \Html::script('js/application.js') }}
-    {{ \Html::script('js/jquery.ui.widget.js') }}
-    {{ \Html::script('js/ie-support/html5.js') }}
-    {{ \Html::script('js/ie-support/respond.js') }}
 
-    {{ \Html::script('js/plugins.js') }}
     {{ \Html::style('fonts/font-awesome.min.css') }}
     {{ \Html::style('css/glyphicons.css.css') }}
     {{ \Html::style('css/application.css.css') }}
-
 
 </head>
 <body class={{isset($body_class) ? $body_class : ''}}>
@@ -111,6 +101,16 @@
 
 </div> <!-- #site-content -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" defer></script>
+<!-- Styles -->
+{{ \Html::script('js/respond.min.js', array('defer' => 'defer')) }}
+{{ \Html::script('js/application.js'), array('defer' => 'defer') }}
+{{ \Html::script('js/jquery.ui.widget.js', array('defer' => 'defer')) }}
+{{ \Html::script('js/ie-support/html5.js', array('defer' => 'defer')) }}
+{{ \Html::script('js/ie-support/respond.js', array('defer' => 'defer')) }}
+
+{{ \Html::script('js/plugins.js', array('defer' => 'defer')) }}
 
 <!-- Piwik -->
 <script type="text/javascript">
