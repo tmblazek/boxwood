@@ -105,7 +105,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" defer></script>
 <!-- Styles -->
 {{ \Html::script('js/respond.min.js', array('defer' => 'defer')) }}
-{{ \Html::script('js/application.js'), array('defer' => 'defer') }}
+{{ \Html::script('js/application.js', array('defer' => 'defer')) }}
 {{ \Html::script('js/jquery.ui.widget.js', array('defer' => 'defer')) }}
 {{ \Html::script('js/ie-support/html5.js', array('defer' => 'defer')) }}
 {{ \Html::script('js/ie-support/respond.js', array('defer' => 'defer')) }}
