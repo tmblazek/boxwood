@@ -180,7 +180,7 @@ var refreshFoldersAndItems = function (data) {
 var hideNavAndShowEditor = function (data) {
   $('#nav-buttons > ul').addClass('hidden');
   $('#content').html(data);
-}
+};
 
 function loadFolders() {
   performLfmRequest('folders', {}, 'html')

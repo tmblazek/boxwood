@@ -11,37 +11,40 @@
 
 
         <div class="fullwidth-block" data-bg-color="#191919">
-            <div class="container text-center">
+
+            <div class="container">
 
 
                 <meta itemprop="genre" content="Irish Folk">
-                <img src="{{asset('/system/biographies/photos/000/000/'.sprintf("%03d", $band_bio->id).'/original/'.$band_bio->photo_file_name) }}"
-                     class="photo">
-
-                <div class="col-xs-12 large-padding">
-                    <div style="font-size:80%" class="text-center">Photo: {{$band_bio->photocredit}}</div>
-                </div>
 
 
-                <div class="col-xs-12 text-center" itemprop="description">
+                <div class="col-xs-12 text-left col-sm-6" itemprop="description">
+                    <h2 class="text-center">Die Band</h2>
                     {!! $band_bio->long_desc !!}
                 </div>
+                <div class="col-xs-12 col-sm-5">
+                    <img src="PADDYSRETURNimHDBklein.jpg"
+                         class="photo" style="margin:0 auto;    display: block;">
 
+
+
+                    <div style="font-size:80%" class="text-center">Photo: Verena Dreitler</div>
+                </div>
 
             </div>
 
         </div>
         <div class="fullwidth-block" data-bg-color="#343434">
             <div class="container">
-                <h2 class="title-page text-center h-padded">Die Mitglieder</h2>
+                <h2 class="text-center">Die Mitglieder</h2>
                 <div class="row">
                     @foreach($member_bios as $index => $member)
-                        @if($index %2 == 0)
+                        @if($index %3 == 0)
                             <div class="row">
                                 @endif
 
 
-                                <div class="col-xs-12 col-sm-6 {{(($index == (count($member_bios) - 1))    && ($index % 2 == 0)) ? 'col-sm-offset-3': ''}} text-center"
+                                <div class="col-xs-12 col-sm-4 {{(($index == (count($member_bios) - 2))    && ($index % 3 == 0)) ? 'col-sm-offset-2': ''}} text-center"
                                      itemprop="member"
                                      itemscope itemtype="http://schema.org/Person">
 
@@ -60,7 +63,7 @@
 
                                 <div itemprop="description">
                                     <div class="col-sm-12">
-                                        {!! $member->long_desc !!}´
+                                        {!! $member->long_desc !!}
                                     </div>
 
                                     <div class="col-xs-12">
@@ -70,7 +73,7 @@
                                 </div><!-- description-->
                                 </div> <!-- /name -->
 
-                @if($index %2 == 1)
+                @if($index %3 == 2)
             </div>
             @endif
 

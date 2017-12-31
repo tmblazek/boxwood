@@ -24,7 +24,7 @@
 //}
 Route::get('/', function () {
     $band_bio = DB::table('biographies')->where('frontpage', 'true')->first();
-    $recordings = DB::table('recordings')->get();
+    $recordings = DB::table('recordings')->where('order', '>', '0')->get();
     $announcements = DB::table('announcements')->where('public','=', 'true')->where('pub_start', '<=', date('Y-m-d'))->where('pub_end', '>=', date('Y-m-d'))->get();
 	$konzerte = DB::table('konzerte')->where('public', 'true')->where('hidden', 'false')->where('start_t', '>=', date('Y-m-d') )->orderBy('start_t', 'asc')->take(3);
     return view('welcome', ['konzerte' => $konzerte->get(), 'body_class'=>'header-collapse', 'announcements'=>$announcements, 'band_bio'=>$band_bio, 'recordings'=>$recordings]);
