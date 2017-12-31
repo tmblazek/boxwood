@@ -77,8 +77,12 @@
 
                 <div class="col-xs-12">
                         <h2>Email Kontakt</h2>
-                        {{Html::mailto('info@padddysreturn.com')}}
+                        {{Html::mailto('info@paddysreturn.com')}}
                 </div>
+                        <div class="text-center">
+                            {!! QrCode::size(200)->generate(Request::url()); !!}
+                            <p>Scan me to return to the original page.</p>
+                        </div>
                     </div>
 
 

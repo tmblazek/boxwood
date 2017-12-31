@@ -118,12 +118,17 @@
                                     <h4 class="title-page text-center">QR-Code</h4>
                                     <img src="{{asset('/system/konzerte/qr_cs/000/000/'.sprintf("%03d", $konzert->id).'/original/qr_code.png')}}"
                                          class="photo">
+                                    <div>
+                                        {!! nl2br($vEvent) !!}
+                                    </div>
+                                        <img class="photo" src="{{'/photos/shares/qr_'.$konzert->id.'.png'}}" width="400px">
 
-                                </div>
+                                            </div>
+                                    </div>
+
+                            </div> <!-- item -->
                         </div>
-                </div> <!-- item -->
-            </div>
-        </div>
+                    </div>
 
-    </main>
+                </main>
 @endsection

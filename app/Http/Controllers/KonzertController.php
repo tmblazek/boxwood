@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Konzerte;
 use App\Http\Controllers\Controller;
-
+use Faker\Provider\DateTime;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class KonzertController extends Controller
 {
     /**
@@ -27,6 +28,10 @@ class KonzertController extends Controller
     }
     public function show($id){
         $konzert = Konzerte::find($id);
-        return view('konzerte.show', ['konzert'=>$konzert]);
+        $vEvent = new \Eluceo\iCal\Component\Event();
+        $vEvent->setDtStart(new \DateTime($konzert->start_t))->setDtEnd(new \DateTime($konzert->end_t))->setSummary($konzert->title)
+            ->setLocation($konzert->address.' '.$konzert->postal.' '.$konzert->city.' '.$konzert->country);
+        QrCode::size(2000)->encoding('UTF-8')->format('png')->generate($vEvent->render(), 'photos/shares/qr_'.$konzert->id.'.png');
+        return view('konzerte.show', ['konzert'=>$konzert, 'vEvent'=>$vEvent]);
     }
 }
