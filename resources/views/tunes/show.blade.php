@@ -97,7 +97,7 @@
 
                 ABCJS.renderAbc('not'.concat(i.toString()), tuneAndHeader, {});
             }
-        };
+        }
         window.onload = execute_onclick();
     </script>
 @endsection

@@ -146,6 +146,11 @@ class AnnouncementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ann = Announcement::find($id);
+        $ann->delete();
+
+        // redirect
+        Session::flash('message', 'Successfully deleted the announcement!');
+        return Redirect::to('/internal/announcements');
     }
 }

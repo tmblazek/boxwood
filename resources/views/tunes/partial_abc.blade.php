@@ -8,7 +8,7 @@ meta title: @tune.title
 
    <script type="text/javascript">
 
-   var tune = "<%= @abc%>";
+   var tune = ";<%= @abc%>";
    var book = new ABCJS.TuneBook(tune);
    var fileHeader = book.header;
    var numberOfTunes = book.tunes.length;

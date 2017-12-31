@@ -1,6 +1,6 @@
 function execload(){
     if (window.execl == true)
-        return
+        return;
     window.execl = true;
     console.log("start execload");
     window.tunes.sort().forEach(function(tune) {
@@ -41,7 +41,7 @@ function redraw_setlist(){
             "<span class=\"glyphicon glyphicon-chevron-up\"></span></button>";
 
         content += "<button type=\"button\" onclick=\"my_movedown("+String(i)+")\" class=\"btn btn-default btn-xs col-xs-4\">"+					"<span class=\"glyphicon glyphicon-chevron-down\"></span></button>"+
-            "</div>"
+            "</div>";
         content += "<div id=\"setlisttune"+String(i)+"\" class=\"col-xs-8\">";
         content += settune.replace(/<br>.+/gi, '</div>') + "</div>";
         content += "<div class=\"col-xs-2\"><div class=\"row-fluid clearfix\">"+
@@ -121,7 +121,7 @@ function grab(tune){
     redraw_setlist();
 }
 function set_active(tune){
-    window.active_tune = tune
+    window.active_tune = tune;
     document.getElementById("active_tune").innerHTML = get_active(tune);
 }
 function get_active(tune){
