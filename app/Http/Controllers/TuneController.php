@@ -70,7 +70,7 @@ class TuneController extends Controller
 
         // process the login
         if ($validator->fails()) {
-            return Redirect::to('internal/tunes/new  ')
+            return Redirect::to('internal/tunes/create')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {

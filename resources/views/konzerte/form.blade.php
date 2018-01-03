@@ -6,15 +6,15 @@
 </div>
 <div class="form-group">
     {{ Form::label('dest', 'dest') }}
-    {{ Form::text('dest', null, array('class' => 'form-control')) }}
+    {{ Form::textarea('dest', null, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
     {{ Form::label('place', 'place') }}
     {{ Form::text('place', null, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
-    {{ Form::label('adress', 'adress') }}
-    {{ Form::text('adress', null, array('class' => 'form-control')) }}
+    {{ Form::label('address', 'address') }}
+    {{ Form::text('address', null, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
     {{ Form::label('placeurl', 'placeurl') }}
@@ -29,17 +29,18 @@
     {{ Form::number('postal', null, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
+    {{ Form::label('region', 'region') }}
+    {{ Form::text('region', null, array('class' => 'form-control')) }}
+</div>
+<div class="form-group">
     {{ Form::label('country', 'country') }}
-    {{ Form::texts('country', null, array('class' => 'form-control')) }}
+    {{ Form::text('country', null, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
     {{ Form::label('photocredit', 'photocredit') }}
-    {{ Form::texts('photocredit', null, array('class' => 'form-control')) }}
+    {{ Form::text('photocredit', null, array('class' => 'form-control')) }}
 </div>
-<div class="form-group">
-    {{ Form::label('country', 'country') }}
-    {{ Form::texts('country', null, array('class' => 'form-control')) }}
-</div>
+
 <div class="form-group">
     {{ Form::label('price', 'price') }}
     {{ Form::textarea('price', null, array('class' => 'form-control')) }}

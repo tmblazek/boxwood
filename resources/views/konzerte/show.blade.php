@@ -50,11 +50,15 @@
 
                                 <h2 class="title-page"> Plakat </h2>
                                 <span class="text-center" itemprop="image">
-
+@if(file_exists('/system/konzerte/plakats/000/000/'.sprintf("%03d", $konzert->id).'/original/'.$konzert->plakat_file_name))
 				<img src="{{asset('/system/konzerte/plakats/000/000/'.sprintf("%03d", $konzert->id).'/original/'.$konzert->plakat_file_name)}}"
                      class="photo " style="max-width:80%;   display: block;
     margin: 0 auto;">
-
+@else
+                                        <img src="{{asset($konzert->plakat_file_name)}}"
+                                             class="photo " style="max-width:80%;   display: block;
+    margin: 0 auto;">
+                                    @endif
 
 						<div class="text-center" style="font-size:80%">
                             {{$konzert->photocredit}}
@@ -68,8 +72,8 @@
 
                     </div></div>
                     <div class="col-xs-12 col-sm-6">
-<div class="col-xs-12">                            <h2>Termin</h2></div>
-                        <div class="col-sm-7">
+<div class="row-fluid clearfix">         <div class="col-xs-12">                   <h2>Termin</h2></div></div>
+                        <div class="col-md-7">
 
                         <div class="event" itemscope itemtype="http://schema.org/MusicEvent">
 
@@ -103,8 +107,8 @@
 
                         </span>
                         </div>
-                        <div class="col-sm-5">
-                            <img class="photo hidden-xs" src="{{'/photos/shares/qr_'.$konzert->id.'.svg'}}" width="400px" style="max-width:80%">
+                        <div class="col-md-5">
+                            <img class="photo" src="{{'/photos/shares/qr_'.$konzert->id.'.svg'}}" width="400px" style="max-width:80%">
                             <br>
                             <a href="{{'/files/shares/ical_'.$konzert->id.'.ics'}}">iCalendar-Download</a>
                         </div>

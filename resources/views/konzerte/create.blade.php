@@ -1,7 +1,7 @@
 @extends('layouts/internal')
 @section('content')
     <div class="page-title">
-        <h1 class="text-center">Neue Ankündigung</h1>
+        <h1 class="text-center">Neues Konzert</h1>
     </div>
     <main class="main">
         <div class="fullwidth-block">
