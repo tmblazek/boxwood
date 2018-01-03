@@ -36,21 +36,22 @@ Route::get('/stpatricksnight', function () {
    return view('pages_show', ['page'=> $blog]);
 });
 Route::get('foo', 'Photos\AdminController@method');
-Route::resource('konzerte', 'KonzertController');
 Route::get('/musik', 'recordings@index');
 Route::get('/musik/{id}', 'recordings@show');
 Route::get('/informationen', 'PagesController@index');
 Route::get('/pages/{id}', 'PagesController@show');
 Route::get('/band', 'BiographiesController@band');
 Auth::routes();
-
+Route::resource('/konzerte', 'KonzertController', ['only'=>['index', 'show']]);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['auth', 'clearance'])->group(function () {
     Route::resource('recordings', 'recordings');
-    Route::get('/internal/', function () {
+
+        Route::get('/internal/', function () {
        $konzerte = [];
        return view('internal_welcome');
     });
+    Route::resource('/internal/konzerte', 'KonzertController');
     Route::resource('/internal/users', 'UserController');
     Route::resource('/internal/announcements', 'AnnouncementController');
     Route::resource('/internal/tunes', 'TuneController');

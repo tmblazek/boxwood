@@ -56,13 +56,28 @@
 			 render partial: "konzert_list", locals: {konzert: @unpublished} unless @unpublished.empty?%>
 			<h2> Veröffentlichte Konzerte </h2>
 		<% end %>-->
+			@can('read')
+				<div class="col-sm-6">
+@else
+	<div class="col-xs-12">
+				@endcan
     <h3>Zukünftige Konzerte</h3>
-			@component('konzerte.list', ['konzerte'=>$konzerte->filter(function($kon){return $kon->start_t>=date('Y-m-d');})])
+			@component('konzerte.list', ['konzerte'=>$konzerte->filter(function($kon){return $kon->start_t>=date('Y-m-d');}), 'future'=>true])
 				@endcomponent
     <h3>Vergangene Konzerte</h3>
-			@component('konzerte.list', ['konzerte'=>$konzerte->filter(function($kon){return $kon->start_t<date('Y-m-d');})])
+			@component('konzerte.list', ['konzerte'=>$konzerte->filter(function($kon){return $kon->start_t<date('Y-m-d');}), 'future'=>false])
 			@endcomponent
         </div>
+						@can('read')
+							<div class="col-sm-6">
+								<h3>Private Konzerte Zukunft</h3>
+								@component('konzerte.list', ['konzerte'=>$private->filter(function($kon){return $kon->start_t>=date('Y-m-d');}), 'future'=>false])
+								@endcomponent
+								<h3>Private Vergangene Konzerte</h3>
+								@component('konzerte.list', ['konzerte'=>$private->filter(function($kon){return $kon->start_t<date('Y-m-d');}), 'future'=>false])
+								@endcomponent
+							</div>
+	@endcan
   </div>
    </main>
    @endsection
