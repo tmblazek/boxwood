@@ -52,19 +52,19 @@
 
 <div class="form-group">
     {{ Form::label('dismaps', 'dismaps?') }}
-    {{ Form::checkbox('dismaps', null, array('class' => 'form-control')) }}
+    {{ Form::checkbox('dismaps',true, null, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
     {{ Form::label('pinned', 'pinned?') }}
-    {{ Form::checkbox('dismaps', null, array('class' => 'form-control')) }}
+    {{ Form::checkbox('dismaps',true, null, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
     {{ Form::label('hidden', 'hidden?') }}
-    {{ Form::checkbox('dismaps', null, array('class' => 'form-control')) }}
+    {{ Form::checkbox('dismaps',true, null, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
     {{ Form::label('public', 'public?') }}
-    {{ Form::checkbox('public', null, array('class' => 'form-control')) }}
+    {{ Form::checkbox('public',true, null, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
     {{ Form::label('start_t', 'start_t') }}
