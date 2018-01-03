@@ -105,10 +105,10 @@ class KonzertController extends Controller
             $konzert->photocredit = Input::get('photocredit');
             $konzert->start_t = Input::get('start_t');
             $konzert->end_t = Input::get('end_t');
-            $konzert->dismaps = Input::get('dismaps');
-            $konzert->pinned = Input::get('pinned');
-            $konzert->hidden = Input::get('hidden');
-            $konzert->public = Input::get('public');
+            $konzert->dismaps = !!Input::get('dismaps');
+            $konzert->pinned = !!Input::get('pinned');
+            $konzert->hidden = !!Input::get('hidden');
+            $konzert->public = !!Input::get('public');
             $konzert->band = Input::get('band');
             $konzert->save();
             // redirect
@@ -159,10 +159,10 @@ class KonzertController extends Controller
             $konzert->photocredit = Input::get('photocredit');
             $konzert->start_t = Input::get('start_t');
             $konzert->end_t = Input::get('end_t');
-            $konzert->dismaps = Input::get('dismaps');
-            $konzert->pinned = Input::get('pinned');
-            $konzert->hidden = Input::get('hidden');
-            $konzert->public = Input::get('public');
+            $konzert->dismaps = !!Input::get('dismaps');
+            $konzert->pinned = !!Input::get('pinned');
+            $konzert->hidden = !!Input::get('hidden');
+            $konzert->public = !!Input::get('public');
             $konzert->band = Input::get('band');
             $konzert->save();
             // redirect
