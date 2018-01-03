@@ -48,9 +48,10 @@
                         @unless (null==$konzert->plakat_file_name)
                             <div class="hidden-xs">
 
-                                <h2 class="title-page"> Plakat </h2>
+                                <h2 class="title-page"> Plakat</h2>
                                 <span class="text-center" itemprop="image">
-@if(null === strpos($konzert->plakat_file_name, '/photos/'))
+
+@if(false === strpos($konzert->plakat_file_name, '/photos/'))
 				<img src="{{asset('/system/konzerte/plakats/000/000/'.sprintf("%03d", $konzert->id).'/original/'.$konzert->plakat_file_name)}}"
                      class="photo " style="max-width:80%;   display: block;
     margin: 0 auto;">
