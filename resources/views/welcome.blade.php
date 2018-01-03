@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 visible-xs visible-sm"><h2>Kommende Konzerte </h2>
 
-                        @component('konzerte.list', ['konzerte'=>$konzerte])
+                        @component('konzerte.list', ['konzerte'=>$konzerte, 'future'=>true])
                         @endcomponent
                     </div>
                     <div class="col-xs-12 col-sm-6 visible-xs visible-sm">
