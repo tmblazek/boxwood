@@ -10,7 +10,7 @@
 </div>
 <div class="form-group">
     {{ Form::label('public', 'Aktiv?') }}
-    {{ Form::checkbox('public', null, array('class' => 'form-control')) }}
+    {{ Form::checkbox('public',true, null, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
     {{ Form::label('pub_start', 'Pub Start') }}
