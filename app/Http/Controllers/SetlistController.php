@@ -160,7 +160,7 @@ class SetlistController extends Controller
             $setlist->save();
             if (strcmp($setlist->title, 'Endgültig') == 0){
                 foreach(["wtblazek@gmail.com", "mist@gmx.at", "xandi.tichy@chello.at","gue.ha@aon.at", "gregor.loetsch@reflex.at"] as $email){
-                Mail::to($email)->send(new DataUpdate($removals, $additions, $order_changes, $setlist->full_title(), "https://www.paddysreturn.com/internal/setlists/".$setlist->id));
+                Mail::to($email)->subject('Setlist geändert [mailer@paddysreturn.com]')->send(new DataUpdate($removals, $additions, $order_changes, $setlist->full_title(), "https://www.paddysreturn.com/internal/setlists/".$setlist->id));
             }
             }
             Session::flash('message', 'Successfully updated Setlist!');
