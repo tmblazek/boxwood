@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Konzerte;
 use App\Http\Controllers\Controller;
 use Faker\Provider\DateTime;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+
 use Illuminate\Http\Request;
 class KonzertController extends Controller
 {
@@ -22,6 +24,7 @@ class KonzertController extends Controller
      */
     public function index()
     {
+
         $jahre = Konzerte::all()->pluck('start_t')->all();
         $jahre = array_unique(array_map(function($j){
             return substr($j, 0, 4);

@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use App\Models\Setlist;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\DataUpdate;
 use Log;
+use App\Models\Tune;
 class SetlistController extends Controller
 {
     /**
@@ -140,6 +143,13 @@ class SetlistController extends Controller
             $konzert = Konzerte::find(Input::get('konzert'));
             Log::error($konzert->title);
             $setlist = Setlist::find($id);
+            $changes = array();
+            $removals = array();
+            $additions = array();
+            $order_changes = array();
+            $this->record_changes($setlist->setlist, Input::get('setlist'),
+                $removals, $additions, $order_changes);
+
             $setlist->setlist = Input::get('setlist');
             $setlist->title = Input::get('title');
             $setlist->konzert()->dissociate();
@@ -148,10 +158,40 @@ class SetlistController extends Controller
             $setlist->save();
             $setlist->sync_tunes();
             $setlist->save();
+            if (strcmp($setlist->title, 'Endgültig') == 0){
+                foreach(["wtblazek@gmail.com", "mist@gmx.at", "xandi.tichy@chello.at","gue.ha@aon.at", "gregor.loetsch@reflex.at"] as $email){
+                Mail::to($email)->subject('Setlist geändert [mailer@paddysreturn.com]')->send(new DataUpdate($removals, $additions, $order_changes, $setlist->full_title(), "https://www.paddysreturn.com/internal/setlists/".$setlist->id));
+            }
+            }
             Session::flash('message', 'Successfully updated Setlist!');
             return Redirect::to('internal/setlists/'.$id);
         }
 
+    }
+    private function record_changes($setlist_old, $setlist_new, &$removals, &$additions, &$order_changes)
+    {
+        $old_array = explode("|", substr($setlist_old, 1, -1));
+        $new_array = explode("|", substr($setlist_new, 1, -1));
+        foreach($old_array as $old){
+            if (!in_array($old, $new_array))
+                array_push($removals, $this->get_tune($old));
+        }
+        foreach($new_array as $new){
+            if (!in_array($new, $old_array))
+                array_push($additions, $this->get_tune($new));
+        }
+
+        foreach($old_array as $index=>$old){
+            if (0 == strcmp($old, $new_array[$index]))
+                continue;
+            else
+                array_push($order_changes, $this->get_tune($old));
+
+
+        }
+    }
+    private function get_tune($string){
+        return Tune::find(str_replace('tune', '', $string))->title;
     }
 
     /**
