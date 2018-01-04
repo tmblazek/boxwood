@@ -159,8 +159,8 @@ class SetlistController extends Controller
             $setlist->sync_tunes();
             $setlist->save();
             if (strcmp($setlist->title, 'Endgültig') == 0){
-            
-                Mail::to(["wtblazek@gmail.com", "mist@gmx.at", "xandi.tichy@chello.at","gue.ha@aon.at", "gregor.loetsch@reflex.at"])->subject('Setlist geändert [mailer@paddysreturn.com]')->send(new DataUpdate($removals, $additions, $order_changes, $setlist->full_title(), "https://www.paddysreturn.com/internal/setlists/".$setlist->id));
+
+                Mail::to(["wtblazek@gmail.com", "mist@gmx.at", "xandi.tichy@chello.at","gue.ha@aon.at", "gregor.loetsch@reflex.at"])send(new DataUpdate($removals, $additions, $order_changes, $setlist->full_title(), "https://www.paddysreturn.com/internal/setlists/".$setlist->id));
 
             }
             Session::flash('message', 'Successfully updated Setlist!');

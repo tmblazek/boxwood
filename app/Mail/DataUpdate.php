@@ -37,6 +37,6 @@ class DataUpdate extends Mailable
      */
     public function build()
     {
-        return $this->from("mailer@paddysreturn.com")->view('mailers.data');
+        return $this->from("mailer@paddysreturn.com")->subject('Setlist geändert [mailer@paddysreturn.com]')->->view('mailers.data');
     }
 }
