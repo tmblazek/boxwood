@@ -9,6 +9,13 @@
                 {{ Form::text('title', null, array('class' => 'form-control')) }}
             </div>
             <div class="form-group">
+                @foreach(App\Models\Tag::all() as $tag)
+                    {{$tag->name}}
+                @endforeach<br>
+                {{ Form::label('taggings', 'taggings') }}
+                {{ Form::text('taggings', $taggings, array('class' => 'form-control')) }}
+            </div>
+            <div class="form-group">
                 {{ Form::label('abc', 'ABC') }}
                 {{ Form::textarea('abc', null, array('class' => 'form-control')) }}
             </div>

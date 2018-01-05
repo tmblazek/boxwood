@@ -52,7 +52,7 @@ class TuneController extends Controller
     public function create()
     {
         $tune = new Tune;
-        return view('tunes.create', ['tune'=>$tune]);
+        return view('tunes.create', ['tune'=>$tune, 'taggings'=>'']);
     }
 
     /**
@@ -112,8 +112,9 @@ class TuneController extends Controller
     public function edit($id)
     {
         $tune = Tune::find($id);
+        $taggings = $tune->get_tags()->map(function ($it) {return $it->name;} )->implode(';');
         // show the edit form and pass the nerd
-        return view('tunes.edit', ['tune'=> $tune]);
+        return view('tunes.edit', ['tune'=> $tune, 'taggings'=>$taggings]);
     }
 
     /**
@@ -149,6 +150,7 @@ class TuneController extends Controller
             $tune->typ = Input::get('typ');
             $tune->michi = Input::get('michi');
             $tune->save();
+            $tune->set_new_tags(explode(";", trim(Input::get('taggings'))));
             // redirect
             Session::flash('message', 'Successfully updated Tune!');
             return Redirect::to('internal/tunes/'.$id);
