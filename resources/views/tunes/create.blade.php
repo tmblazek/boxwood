@@ -9,7 +9,7 @@
 
         {{ Form::open(array('url' => '/internal/tunes')) }}
         {{ Form::submit('New Tune!', array('class' => 'btn btn-primary')) }}
-        @component('tunes.form')
+        @component('tunes.form', ['taggings' =>$taggings])
         @endcomponent
         {{ Form::close() }}
     </main>

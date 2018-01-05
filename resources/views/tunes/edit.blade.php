@@ -8,7 +8,7 @@
 
         {{ Form::model($tune, array('route' => array('tunes.update', $tune->id), 'method' => 'PUT')) }}
         {{ Form::submit('Edit the Tune!', array('class' => 'btn btn-primary')) }}
-@component('tunes.form', ['tune'=>$tune])
+@component('tunes.form', ['tune'=>$tune, 'taggings'=>$taggings])
     @endcomponent
         {{ Form::close() }}
     </main>

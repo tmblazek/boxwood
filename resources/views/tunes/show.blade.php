@@ -4,12 +4,16 @@
 
     <div class="page-title">
         <h1 class="text-center">{{$tune->title}}</h1>
+
     </div>
     <main class="main">
 
         <div class="fullwidth-block">
             <div class="container">
-
+<div class="text-center">   <i class="fa fa-tags" aria-hidden="true"></i>              @foreach($tune->get_tags() as $tag)
+        {{$tag->name }}     <i class="fa fa-tags" aria-hidden="true"></i>
+    @endforeach
+</div>
                 <!-- <small class="mysmall"> @tune.tag_list.each do |tag| %>
                    | <% tag.to_s %>
                    <%end %> |</small></h1>-->
@@ -28,12 +32,11 @@
                                 <% link_to '<b style="font-color:red">Löschen</b>'.html_safe, tune_path(@tune),method: :delete,data: { confirm: 'Are you sure?' }, class: "btn btn-primary"  %>
                                   <% end %>-->
                     </div>
+
                 </div>
                 <h2 class="text-center">Setlist Infos </h2>
                 <div class="visible-print title-page">{{$tune->title}}</div>
-                @foreach($tune->get_tags() as $tag)
-                    {{$tag}} -
-                @endforeach
+
                 @component('tunes.template_quer')
                 @endcomponent
                 @component('tunes.partial_tune_quer', ['tune'=>$tune, 'index' => 0])
