@@ -54,6 +54,8 @@
                                 href="{{url('/musik')}}">Musik</a></li>
                     <li class="menu-item {{strpos(request()->path(),'informationen')!==false ?  'current-menu-item' : ''}}">
                         <a href="{{url('/informationen')}}">Infos</a></li>
+                    <li class="menu-item {{strpos(request()->path(),'presse')!==false ?  'current-menu-item' : ''}}">
+                        <a href="{{url('/presse')}}">Presse</a></li>
                     @can('read')
                         <li class="menu-item"><a href="{{url('/internal/tunes')}}">Intern</a></li>
                         <li class="menu-item"><a href="{{ route('logout') }}"

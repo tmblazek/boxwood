@@ -22,6 +22,9 @@
 //    }
 //    return $in_string;
 //}
+Route::get('/presse', function (){
+    return view('presse', ['test'=>'test']);
+});
 Route::get('/', function () {
     $band_bio = DB::table('biographies')->where('frontpage', 'true')->first();
     $recordings = DB::table('recordings')->where('order', '>', '0')->get();
@@ -41,6 +44,7 @@ Route::get('/musik/{id}', 'recordings@show');
 Route::get('/informationen', 'PagesController@index');
 Route::get('/pages/{id}', 'PagesController@show');
 Route::get('/band', 'BiographiesController@band');
+
 Auth::routes();
 Route::resource('/konzerte', 'KonzertController', ['only'=>['index', 'show']]);
 Route::get('/home', 'HomeController@index')->name('home');
