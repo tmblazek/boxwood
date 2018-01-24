@@ -1829,7 +1829,7 @@ body {
 .main-navigation .toggle-menu:hover, .main-navigation .toggle-menu:active, .main-navigation .toggle-menu.active {
   color: #fd5927; }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 1200px) {
   /* line 30, sass/layout/_header.scss */
   .main-navigation .toggle-menu {
     display: block; } }
@@ -1839,11 +1839,11 @@ body {
   padding-left: 0;
   margin: 0; }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 1201px) {
   /* line 48, sass/layout/_header.scss */
   .main-navigation .menu {
     display: block !important; } }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 1200px) {
   /* line 48, sass/layout/_header.scss */
   .main-navigation .menu {
     display: none; } }
