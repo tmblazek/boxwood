@@ -1910,7 +1910,7 @@ body {
   display: none;
   margin-bottom: 20px; }
 
-@media screen and (min-width: 951px) {
+@media screen and (min-width: 1201px) {
   /* line 105, sass/layout/_header.scss */
   .mobile-menu {
     display: none !important; } }
