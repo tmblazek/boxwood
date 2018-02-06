@@ -134,5 +134,11 @@
 </script>
 <!-- End Piwik Code -->
 
+<noscript>
+<!-- Matomo Image Tracker-->
+<img src="https://analytics.paddysreturn.com/piwik/piwik.php?idsite=1&rec=1&url={{Request::url()}}&action_name={{Route::getCurrentRoute()->getActionName()}}&urlref={{Request::server('HTTP_REFERER')}}" style="border:0" alt="" />
+<!-- End Matomo -->
+</noscript>
+
 </body>
 </html>
