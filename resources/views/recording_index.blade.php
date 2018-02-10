@@ -15,7 +15,7 @@
                 @can('read')
                 <div class="row-fluid text-right">
                     <div class="btn-group" role="group">
-                        {{Html::linkAction('AnnouncementController@create', 'Neues Announcements', [], ['class'=>'btn btn-primary'])}}
+                        {{Html::linkAction('recordings@create', 'Neues Video', [], ['class'=>'btn btn-primary'])}}
                     </div>
                 </div>
                 @endcan
@@ -43,6 +43,7 @@
                                 <% link_to '<b style="font-color:red">Löschen</b>'.html_safe, tune_path(@tune),method: :delete,data: { confirm: 'Are you sure?' }, class: "btn btn-primary"  %>
                                   <% end %>-->
                                         </div>
+                                    </div>
                                         @endcan
                                 <div class="embed-responsive embed-responsive-4by3">
 
