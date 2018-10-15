@@ -27,7 +27,7 @@ class TuneController extends Controller
         if  (null!== app('request')->input('exclude_tag')){
             foreach (explode(app('request')->input('exclude_tag'),
             ";") as $ex_tag) {
-            $remove_tag = Tune::find_by_tags(ex_tag)->sortBy('title');
+            $remove_tag = Tune::find_by_tags($ex_tag)->sortBy('title');
             $tunes = $tunes->diff($remove_tag);
         }
         }
