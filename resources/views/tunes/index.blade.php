@@ -28,7 +28,7 @@
                     @foreach($tunes as $index=>$tune)
                         <h3>
                         @if($tune->has_tag("flag"))
-                            <span style="textcolor:red;">
+                            <span style="color:red;">
                             @else
                             <span>
                             @endif
