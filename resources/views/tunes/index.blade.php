@@ -27,8 +27,16 @@
                     </p>
                     @foreach($tunes as $index=>$tune)
                         <h3>
+                        @if($tune->has_tag("flag"))
+                            <span style="textcolor:red;">
+                            @else
+                            <span>
+                            @endif
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
                             | {{count($tune->setlists)}} Setl.
+
+                            </span>
+
                         </h3>
                     @endforeach
                     Total: {{count($tunes)}}
