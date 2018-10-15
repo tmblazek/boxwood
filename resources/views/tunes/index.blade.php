@@ -35,12 +35,13 @@
                             @endif
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
                             | {{count($tune->setlists)}} Setl.; {{($tune->setlists->map(function($setlist){
-                                return $setlist->start_t >= date('Y-m-d');}))}}
+                                return strcmp($setlist->start_t,date('Y-m-d'))>=0;}))}}
 
                             </span>
 
                         </h4>
                     @endforeach
+                    {{ date('Y-m-d')}}
                     Total: {{count($tunes)}}
                 </div>
             </div>
