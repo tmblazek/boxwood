@@ -36,6 +36,7 @@
                             @else
                             <span>
                             @endif
+                            @endif
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
                             | {{count($tune->setlists)}} Setl. gesamt.  
                             {{
