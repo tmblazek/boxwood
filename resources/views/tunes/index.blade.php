@@ -35,7 +35,7 @@
                             @endif
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
                             | {{count($tune->setlists)}} Setl.; 
-                            @foreach(tune->setlists->filter(function ($setlist){
+                            @foreach($tune->setlists->filter(function ($setlist){
                                 return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;
                             }) as $future_setlist)
                             {{$future_setlist->full_title()}}
