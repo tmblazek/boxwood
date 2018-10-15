@@ -19,7 +19,7 @@ class TuneController extends Controller
      */
     public function index()
     {
-        if ((null!== app('request')->input('tag')){
+        if (null!== app('request')->input('tag')){
             $tunes = Tune::find_by_tags(app('request')->input('tag'))->sortBy('title');
         }
         else
