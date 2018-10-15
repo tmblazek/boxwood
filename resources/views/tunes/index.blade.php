@@ -34,8 +34,12 @@
                             <span>
                             @endif
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
-                            | {{count($tune->setlists)}} Setl.; {{($tune->setlists()->map(function($setlist){
-                                return $setlist->start_t;}))}}
+                            | {{count($tune->setlists)}} Setl.; 
+                            @foreach($tune->setlists as $setlist)
+                            @if(strcmp($setlist->start_t, date('Y-m-d')>=0))
+                            {{$setlist->start_t}}
+                            @endif
+                            @endforeach
 
                             </span>
 
