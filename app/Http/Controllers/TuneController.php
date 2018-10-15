@@ -24,7 +24,7 @@ class TuneController extends Controller
         }
         else
         {$tunes = Tune::all()->sortBy('title');}
-        if  ((null!== app('request')->input('exclude_tag')){
+        if  (null!== app('request')->input('exclude_tag')){
             $remove_tag = Tune::find_by_tags(app('request')->input('exclude_tag'))->sortBy('title');
             $tunes = array_diff($tunes, $remove_tag);s
         }
