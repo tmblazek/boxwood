@@ -34,7 +34,7 @@
                             <span>
                             @endif
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
-                            | {{count($tune->setlists)}} Setl.; {{count(array_filter($tune->setlists, function($setlist){
+                            | {{count($tune->setlists)}} Setl.; {{count($tune->setlists->filter(function($setlist){
                                 return $setlist->start_t >= date('Y-m-d');}))}}
 
                             </span>
