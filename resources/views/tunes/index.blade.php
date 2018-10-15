@@ -30,16 +30,18 @@
                         @if($tune->has_tag("flag"))
                             <span style="color:red;">
                             @else
-                            
+                            @if (                            count($tune->setlists->filter(function ($setlist){
+                                return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;}) >0)
+                            <span class="font-weight:bold;">
+                            @else
                             <span>
                             @endif
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
-                            | {{count($tune->setlists)}} Setl.; 
-                            @foreach($tune->setlists->filter(function ($setlist){
-                                return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;
-                            }) as $future_setlist)
-                            {{$future_setlist->full_title()}}
-                            @endforeach
+                            | {{count($tune->setlists)}} Setl. gesamt.  
+                            {{
+                            count($tune->setlists->filter(function ($setlist){
+                                return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;})
+                            }} zukünftig.
 
 
                             </span>
