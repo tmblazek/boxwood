@@ -25,14 +25,13 @@
                         <a href="{{url('/internal/tunes?tag='.$tag->name)}}">{{$tag->name}}</a> |
                     @endforeach
                     </p>
-                    {$loop_counter = 1;}
                     @foreach($tunes as $index=>$tune)
-                        <h3>{{$loop_counter}}:
-                        {$loop_counter++;} 
+                        <h3>
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
                             | {{count($tune->setlists)}} Setl.
                         </h3>
                     @endforeach
+                    Total: {{count($tunes)}}
                 </div>
             </div>
     </main>
