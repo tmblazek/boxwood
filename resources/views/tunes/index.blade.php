@@ -32,7 +32,7 @@
                             @else
                             @if (                           count($tune->setlists->filter(function ($setlist){
                                 return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;})) >0)
-                            <span class="font-weight:bold;">
+                            <span class="font-weight:bold;color:blue;">
                             @else
                             <span>
                             @endif
