@@ -25,8 +25,8 @@
                         <a href="{{url('/internal/tunes?tag='.$tag->name)}}">{{$tag->name}}</a> |
                     @endforeach
                     </p>
-                    @foreach($tunes as $tune)
-                        <h3>
+                    @foreach($tunes as $index=>$tune)
+                        <h3>{{$index}}: 
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
                             | {{count($tune->setlists)}} Setl.
                         </h3>
