@@ -40,7 +40,7 @@
                             | {{count($tune->setlists)}} Setl. gesamt.  
                             {{
                             count($tune->setlists->filter(function ($setlist){
-                                return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;})
+                                return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;}))
                             }} zukünftig.
 
 
