@@ -19,12 +19,15 @@ class TuneController extends Controller
      */
     public function index()
     {
-        if (null!== app('request')->input('tag')){
+        if ((null!== app('request')->input('tag')){
             $tunes = Tune::find_by_tags(app('request')->input('tag'))->sortBy('title');
         }
         else
         {$tunes = Tune::all()->sortBy('title');}
-
+        if  ((null!== app('request')->input('exclude_tag')){
+            $remove_tag = Tune::find_by_tags(app('request')->input('exclude_tag'))->sortBy('title');
+            $tunes = array_diff($tunes, $remove_tag);s
+        }
         return view('tunes.index', ['tunes'=>$tunes]);
     }
     public function tunebook()
