@@ -57,8 +57,6 @@
 
 
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
-                            |  Setl. gesamt.  
-
                         </b>
                         </td>
                         <td> <!-- Song -->
