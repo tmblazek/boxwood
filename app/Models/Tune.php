@@ -99,11 +99,11 @@ class Tune extends Model
             if ($index==0){
                 $tune_set = $subset;
             } else {
-                $tune_set = $tune_set->union($subset)->unique();
+                $tune_set = $tune_set->union($subset);
             }
         }
 
-        return $tune_set;
+        return $tune_set->unique();
     }
     public static function find_by_tags($tag_name){
         if (null === Tag::where('name', $tag_name)->get()->first()){
