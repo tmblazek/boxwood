@@ -93,7 +93,7 @@ class Tune extends Model
             if ($index==0) {
                 $tune_set = Tune::find_by_tags($tag_name);
             } else {
-                $tune_set->union(Tune::find_by_tags($tag_name));
+                $tune_set = $tune_set->union(Tune::find_by_tags($tag_name));
             }
 
         }
