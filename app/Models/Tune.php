@@ -95,14 +95,14 @@ class Tune extends Model
                 $subset = Tune::find_by_tags($tag_name);
             } else {
                 $subset = $subset->intersect(Tune::find_by_tags($tag_name));
-            }
+            }        }
             if ($index==0){
                 $tune_set = $subset;
             } else {
-                $tune_set = $tune_set->union($subset);
+                $tune_set = $tune_set->union($subset)->unique();
             }
         }
-        }
+
         return $tune_set;
     }
     public static function find_by_tags($tag_name){
