@@ -52,7 +52,7 @@
                         <tbody>
                     @foreach($tunes as $index=>$tune)
                     @if($tune->has_tag("flag"))
-                    <tr class="bg-warning">
+                    <tr class="warning">
                         @else
                         @if(  count($tune->setlists->filter(function ($setlist){
                             return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;})) >0)

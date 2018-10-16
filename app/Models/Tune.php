@@ -88,6 +88,17 @@ class Tune extends Model
         $tag->taggings_count = sizeof(Tagging::where('tag_id', $tag->id)->get());
         $tag->save();
     }
+    public static function find_by_tag_string($tag_string){
+        foreach(explode("|", $tag_string) as $index => $tag_name){
+            if ($index==0) {
+                $tune_set = Tune::find_by_tags($tag_name);
+            } else {
+                $tune_set->merge(Tune::find_by_tags($tag_name));
+            }
+
+        }
+        return $tune_set;
+    }
     public static function find_by_tags($tag_name){
         if (null === Tag::where('name', $tag_name)->get()->first()){
             return self::all()->filter(function ($t){return !(substr($t->title,0,3)=== "---");});
