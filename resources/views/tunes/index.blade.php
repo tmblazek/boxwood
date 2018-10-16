@@ -82,7 +82,7 @@
                     @endif
                         </td>
                         <td> <!-- Tuneset -->
-                            @if(!($tune->has_tag("song")))<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+                            @if(!($tune->has_tag("song")))<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
                     @if($tune->has_tag("tänzer"))
                     |💃
                 @endif
