@@ -25,29 +25,88 @@
                         <a href="{{url('/internal/tunes?tag='.$tag->name)}}">{{$tag->name}}</a> |
                     @endforeach
                     </p>
+                    <table>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Song
+                            </th>
+                            <th>
+                                Tuneset
+                            </th>
+                            <th>
+                                Flag
+                            </th>
+                            <th>
+                                Setlists (zukunft./total)
+                            </th>
+
+                        </tr>
                     @foreach($tunes as $index=>$tune)
+                    <tr>
+                        <td> <!-- ID -->
+                            {{$tune->id}}
+                        </td>
+                        <td> <!-- Name -->
                         <h4>
-                        @if($tune->has_tag("flag"))
-                            <span style="color:red;">
-                            @else
-                            @if (                           count($tune->setlists->filter(function ($setlist){
-                                return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;})) >0)
-                            <span class="font-weight:bold;color:blue;">
-                            @else
-                            <span>
-                            @endif
-                            @endif
+
+
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
-                            | {{count($tune->setlists)}} Setl. gesamt.  
-                            {{
-                            count($tune->setlists->filter(function ($setlist){
-                                return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;}))
-                            }} zukünftig.
-
-
-                            </span>
+                            |  Setl. gesamt.  
 
                         </h4>
+                        </td>
+                        <td> <!-- Song -->
+                            @if($tune->has_tag("song"))<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+                            @if($tune->has_tag("gregor"))
+                                |Gr
+                            @endif
+                            @if($tune->has_tag("guenther"))
+                            |Gu
+                        @endif
+                        @if($tune->has_tag("michi"))
+                        |Mi
+                    @endif
+                    @endif
+                        </td>
+                        <td> <!-- Tuneset -->
+                            @if(!($tune->has_tag("song")))<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+                            @if($tune->has_tag("jigs"))
+                                |ji
+                            @endif
+                            @if($tune->has_tag("reels"))
+                            |re
+                        @endif
+                        @if($tune->has_tag("slipjigs"))
+                        |sj
+                    @endif
+                    @if($tune->has_tag("hornpipes"))
+                    |hp
+                @endif
+                @if($tune->has_tag("polkas"))
+                |pk
+            @endif
+                    @if($tune->has_tag("tänzer"))
+                    |<b>D</b>
+                @endif
+                    @endif
+                        </td>
+                        <td> <!-- Flag -->
+                            @if($tune->has_tag("flag"))
+                            <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+                            @endif
+                        </td>
+                        <td> <!-- Setlists -->
+                            {{
+                                count($tune->setlists->filter(function ($setlist){
+                                    return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;}))
+                                }} / {{count($tune->setlists)}}
+                        </td>
                     @endforeach
                     {{ date('Y-m-d')}}
                     Total: {{count($tunes)}}
