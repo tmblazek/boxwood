@@ -25,7 +25,8 @@
                         <a href="{{url('/internal/tunes?tag='.$tag->name)}}">{{$tag->name}}</a> |
                     @endforeach
                     </p>
-                    <table class="table">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
                         <tr>
                             <th>
                                 ID
@@ -47,6 +48,8 @@
                             </th>
 
                         </tr>
+                        </thead>
+                        <tbody>
                     @foreach($tunes as $index=>$tune)
                     <tr>
                         <td> <!-- ID -->
@@ -107,6 +110,7 @@
                         </td>
                     </tr>
                     @endforeach
+                        </tbody>
                 </table>
                     {{ date('Y-m-d')}}
                     Total: {{count($tunes)}}
