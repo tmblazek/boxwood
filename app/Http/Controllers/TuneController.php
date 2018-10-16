@@ -20,12 +20,12 @@ class TuneController extends Controller
     public function index()
     {
         if (null!== app('request')->input('tag')){
-            $tunes = Tune::find_by_tags(app('request')->input('tag'))->sortBy('title');
+            $tunes = Tune::find_by_tag_string(app('request')->input('tag'))->sortBy('title');
         }
         else
         {$tunes = Tune::all()->sortBy('title');}
         if  (null!== app('request')->input('exclude_tag')){
-            $remove_tag = Tune::find_by_tags(app('request')->input('exclude_tag'))->sortBy('title');
+            $remove_tag = Tune::find_by_tag_string(app('request')->input('exclude_tag'))->sortBy('title');
             $tunes = $tunes->diff($remove_tag);
         
         }
@@ -39,7 +39,7 @@ class TuneController extends Controller
         else{
             $title = strtoupper(app('request')->input('tag'));
         }
-        $tunes = Tune::find_by_tags(app('request')->input('tag'))->sortBy('title');
+        $tunes = Tune::find_by_tag_string(app('request')->input('tag'))->sortBy('title');
         if ('true'!=app('request')->input('michi')){
         return view('tunes.druckvorschau', ['tunes'=>$tunes, 'title'=>$title]);
         }
