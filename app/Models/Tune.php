@@ -89,13 +89,19 @@ class Tune extends Model
         $tag->save();
     }
     public static function find_by_tag_string($tag_string){
-        foreach(explode("|", $tag_string) as $index => $tag_name){
-            if ($index==0) {
-                $tune_set = Tune::find_by_tags($tag_name);
+        foreach(explode("|", $tag_string) as $index => $substring){
+            foreach(explode("^", $substring) as $index2 => $tag_name){
+            if ( $index2 == 0) {
+                $subset = Tune::find_by_tags($tag_name);
             } else {
-                $tune_set = $tune_set->union(Tune::find_by_tags($tag_name));
+                $subset = $subset->intersect(Tune::find_by_tags($tag_name));
             }
-
+            if ($index==0){
+                $tune_set = $subset;
+            } else {
+                $tune_set = $tune_set->union($subset);
+            }
+        }
         }
         return $tune_set;
     }
