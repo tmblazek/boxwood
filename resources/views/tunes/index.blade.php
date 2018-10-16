@@ -25,7 +25,7 @@
                         <a href="{{url('/internal/tunes?tag='.$tag->name)}}">{{$tag->name}}</a> |
                     @endforeach
                     </p>
-                    <table>
+                    <table class="table">
                         <tr>
                             <th>
                                 ID
