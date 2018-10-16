@@ -23,10 +23,10 @@
                     <a href="{{url('/internal/tunes')}}">Alle Tunes </a>|
                     @foreach(App\Models\Tag::all() as $tag)
                         <a href="{{url('/internal/tunes?tag='.$tag->name)}}">{{$tag->name}}</a> |
-                    @endforeach
+                    @endforeach     
                     </p>
                     <table class="table table-striped">
-                        <thead class="thead-dark">
+                        <thead>
                         <tr>
                             <th>
                                 ID
@@ -51,19 +51,20 @@
                         </thead>
                         <tbody>
                     @foreach($tunes as $index=>$tune)
+                    @if($tune->has_tag("flag"))
+                    <tr class="bg-warning">
+                        @else
                     <tr>
+                        @endif
                         <td> <!-- ID -->
                             {{$tune->id}}
                         </td>
                         <td> <!-- Name -->
-                        <b>
-
 
                             <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
-                        </b>
                         </td>
                         <td> <!-- Song -->
-                            @if($tune->has_tag("song"))<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+                            @if($tune->has_tag("song"))<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
                             @if($tune->has_tag("gregor"))
                                 |Gr
                             @endif
@@ -77,23 +78,8 @@
                         </td>
                         <td> <!-- Tuneset -->
                             @if(!($tune->has_tag("song")))<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
-                            @if($tune->has_tag("jigs"))
-                                |ji
-                            @endif
-                            @if($tune->has_tag("reels"))
-                            |re
-                        @endif
-                        @if($tune->has_tag("slipjigs"))
-                        |sj
-                    @endif
-                    @if($tune->has_tag("hornpipes"))
-                    |hp
-                @endif
-                @if($tune->has_tag("polkas"))
-                |pk
-            @endif
                     @if($tune->has_tag("tänzer"))
-                    |<b>D</b>
+                    |💃
                 @endif
                     @endif
                         </td>
