@@ -107,7 +107,9 @@
                                     return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;}))
                                 }} / {{count($tune->setlists)}}
                         </td>
+                    </tr>
                     @endforeach
+                </table>
                     {{ date('Y-m-d')}}
                     Total: {{count($tunes)}}
                 </div>
