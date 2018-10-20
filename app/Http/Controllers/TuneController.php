@@ -50,15 +50,16 @@ class TuneController extends Controller
     public function stats()
     {
         $tunes_to_exclude =Tune::find_by_tag_string('flag|listblock');
+        $all_songs = Tune::find_by_tag_string('song');
         $song_gregor = Tune::find_by_tag_string('gregor')->diff($tunes_to_exclude);
         $song_michi = Tune::find_by_tag_string('michi')->diff($tunes_to_exclude);
         $song_guenther = Tune::find_by_tag_string('guenther')->diff($tunes_to_exclude);
         $tune_dancer = Tune::find_by_tag_string('tänzer')->diff($tunes_to_exclude);
-        $tune_reels = Tune::find_by_tag_string('reels')->diff($tunes_to_exclude);
-        $tune_jigs = Tune::find_by_tag_string('jigs')->diff($tunes_to_exclude);
-        $tune_polkas = Tune::find_by_tag_string('polkas')->diff($tunes_to_exclude);
-        $tune_hornpipes = Tune::find_by_tag_string('hornpipes')->diff($tunes_to_exclude);
-        $tune_slipjigs = Tune::find_by_tag_string('slipjigs')->diff($tunes_to_exclude);
+        $tune_reels = Tune::find_by_tag_string('reels')->diff($tunes_to_exclude)->diff($all_songs);
+        $tune_jigs = Tune::find_by_tag_string('jigs')->diff($tunes_to_exclude)->diff($all_songs);
+        $tune_polkas = Tune::find_by_tag_string('polkas')->diff($tunes_to_exclude)->diff($all_songs);
+        $tune_hornpipes = Tune::find_by_tag_string('hornpipes')->diff($tunes_to_exclude)->diff($all_songs);
+        $tune_slipjigs = Tune::find_by_tag_string('slipjigs')->diff($tunes_to_exclude->diff($all_songs);
         $tune_remainder = Tune::all()->diff($tune_slipjigs)
         ->diff($tune_jigs)
         ->diff($tune_polkas)
