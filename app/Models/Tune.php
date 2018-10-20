@@ -127,6 +127,13 @@ class Tune extends Model
         $ret = $ret.']';
         return $ret;
     }
+    public function last_used_within($date_offset) {
+        $last_use = new \DateTime($this->last_use());
+        return ($last_use->modify($date_offset)->format("Y-m-d H:i:s") >= date("Y-m-d H:i:s"));
+    }
+    public function last_use(){
+        return $this->setlists->map(function ($setlist){ return $setlist->konzert->start_t;})->max();
+    }
     public function abc_for_js(){
         $abc = $this->abc;
         $abc = str_replace("\r", "", $abc);

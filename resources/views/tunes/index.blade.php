@@ -44,10 +44,9 @@
                                 Flag
                             </th>
                             <th>
-                                Setlists (zukunft./total)
+                                Setlist Info
                             </th>
 
-                        </tr>
                         </thead>
                         <tbody>
                     @foreach($tunes as $index=>$tune)
@@ -94,10 +93,35 @@
                             @endif
                         </td>
                         <td> <!-- Setlists -->
-                            {{
-                                count($tune->setlists->filter(function ($setlist){
+                            
+                                @if(($tune->setlists->count())==0)
+                                <span class="color:red!;font-weight:bold!;">
+                                @else
+                                <span>
+                                @endif
+                                {{count($tune->setlists)}} Sl.
+                                
+                                </span>
+                                @if(                                count($tune->setlists->filter(function ($setlist){
                                     return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;}))
-                                }} / {{count($tune->setlists)}}
+                                >0)
+                                {{count($tune->setlists->filter(function ($setlist){
+                                    return strcmp($setlist->konzert->start_t, date('Y-m-d'))>=0;}))
+                                }} zukünftig.
+                                @endif
+                                @if(!$tune->last_used_within('+3 year'))
+                        <b>&gt;3y</b>
+                        @else
+                        @if(!$tune->last_used_within('+2 year'))
+                        <b>&gt;2y</b>
+                        @else
+                        @if(!$tune->last_used_within('+1 year'))
+                        <b>&gt;1y</b>
+
+                        @endif
+                        @endif
+               
+                        @endif
                         </td>
                     </tr>
                     @endforeach
