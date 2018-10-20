@@ -65,3 +65,8 @@ Route::middleware(['auth', 'clearance'])->group(function () {
     Route::get('/internal/setlists/{id}/michi', 'SetlistController@michi');
     Route::get('/internal/tunebook', 'TuneController@tunebook');
 });
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
+    Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
+    // list all lfm routes here...
+});
