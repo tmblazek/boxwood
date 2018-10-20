@@ -49,7 +49,7 @@ class TuneController extends Controller
     }
     public function stats()
     {
-        $tunes_to_exclude =Tune::find_by_tag_string('flag')->diff($tunes_to_exclude);
+        $tunes_to_exclude =Tune::find_by_tag_string('flag');
         $song_gregor = Tune::find_by_tag_string('gregor')->diff($tunes_to_exclude);
         $song_michi = Tune::find_by_tag_string('michi')->diff($tunes_to_exclude);
         $song_guenther = Tune::find_by_tag_string('guenther')->diff($tunes_to_exclude);
