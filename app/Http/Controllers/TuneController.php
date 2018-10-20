@@ -49,7 +49,7 @@ class TuneController extends Controller
     }
     public function stats()
     {
-        $tunes_to_exclude =Tune::find_by_tag_string('flag');
+        $tunes_to_exclude =Tune::find_by_tag_string('flag|listblock');
         $song_gregor = Tune::find_by_tag_string('gregor')->diff($tunes_to_exclude);
         $song_michi = Tune::find_by_tag_string('michi')->diff($tunes_to_exclude);
         $song_guenther = Tune::find_by_tag_string('guenther')->diff($tunes_to_exclude);
@@ -67,9 +67,9 @@ class TuneController extends Controller
         ->diff($tune_dancer)
         ->diff($song_gregor)
         ->diff($song_michi)
-        ->diff($song_guenther);
+        ->diff($song_guenther)->diff($tunes_to_exclude);
         return view('tunes.tunestats', 
-            ['flagged'=>$tunes_to_exclude,
+            ['flagged'=>Tune::find_by_tag_string('flag'),
              'song_gregor'=>$song_gregor,
              'song_michi'=>$song_michi,
              'song_guenther'=>$song_guenther,
@@ -79,7 +79,7 @@ class TuneController extends Controller
              'tune_polkas'=>$tune_polkas,
              'tune_hornpipes'=>$tune_hornpipes,
              'tune_slipjigs'=>$tune_slipjigs, 
-             'tune_remainder'=>$tune_remainder 
+             'tune_remainder'=>$tune_remainder
             ]);
     }
 
