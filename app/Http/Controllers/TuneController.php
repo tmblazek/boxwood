@@ -59,7 +59,7 @@ class TuneController extends Controller
         $tune_jigs = Tune::find_by_tag_string('jigs')->diff($tunes_to_exclude)->diff($all_songs);
         $tune_polkas = Tune::find_by_tag_string('polkas')->diff($tunes_to_exclude)->diff($all_songs);
         $tune_hornpipes = Tune::find_by_tag_string('hornpipes')->diff($tunes_to_exclude)->diff($all_songs);
-        $tune_slipjigs = Tune::find_by_tag_string('slipjigs')->diff($tunes_to_exclude->diff($all_songs);
+        $tune_slipjigs = Tune::find_by_tag_string('slipjigs')->diff($tunes_to_exclude)->diff($all_songs);
         $tune_remainder = Tune::all()->diff($tune_slipjigs)
         ->diff($tune_jigs)
         ->diff($tune_polkas)
