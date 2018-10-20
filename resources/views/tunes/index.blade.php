@@ -15,6 +15,7 @@
                 </div>
 
                 <div class="container">
+                <p><b>Tunestats: {{url('/internal/tunestats')}}</b></p>
                     <p><b>Tunebook Generieren: </b>
                         <a href="{{url('/internal/tunebook?tag='.app('request')->input('tag'))}}">Als Tunebook Anzeigen</a> |   <a href="{{url('/internal/tunebook?michi=true&tag='.app('request')->input('tag'))}}">Als Tunebook Anzeigen (Michi)</a>
                     </p>

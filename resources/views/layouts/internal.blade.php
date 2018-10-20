@@ -49,6 +49,8 @@
                     @hasrole('admin')
                     <li class="menu-item {{strpos(request()->path(),'users')!==false ? 'current-menu-item' : ''}}"><a
                                 href="{{url('/internal/users')}}">User</a></li>
+                                <li class="menu-item {{strpos(request()->path(),'announcements')!==false ? 'current-menu-item' : ''}}"><a
+                                href="{{url('/internal/announcements')}}">Announcements</a></li>
                     @endhasrole
                     <li class="menu-item {{strpos(request()->path(),'konzerte')!==false ? 'current-menu-item' : ''}}"><a
                                 href="{{url('/konzerte')}}">Konzerte</a></li>
