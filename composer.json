@@ -13,7 +13,7 @@
         "simplesoftwareio/simple-qrcode": "^1.5",
         "spatie/laravel-permission": "^1.13",
         "unisharp/laravel-ckeditor": "^4.6",
-        "unisharp/laravel-filemanager": "^1.8"
+        "unisharp/laravel-filemanager": "1.8.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
