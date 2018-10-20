@@ -59,6 +59,7 @@ Route::middleware(['auth', 'clearance'])->group(function () {
     Route::resource('/internal/users', 'UserController');
     Route::resource('/internal/announcements', 'AnnouncementController');
     Route::resource('/internal/tunes', 'TuneController');
+    Route::get('/internal/tunestats', 'TuneController@stats');
     Route::resource('/internal/setlists', 'SetlistController');
     Route::get('/internal/setlists/{id}/druckvorschau', 'SetlistController@druckvorschau');
     Route::get('/internal/setlists/{id}/michi', 'SetlistController@michi');
