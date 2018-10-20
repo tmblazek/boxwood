@@ -60,8 +60,7 @@
                             {{$tune->id}}
                         </td>
                         <td> <!-- Name -->
-
-                            <a href="{{url('/internal/tunes/'.$tune->id)}}">{{$tune->title == "" ? "namenloser tune" : $tune->title}}</a>
+{{$tune->title == "" ? "namenloser tune" : $tune->title}}
                         </td>
                         <td> <!-- Song -->
                             @if($tune->has_tag("song"))<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
