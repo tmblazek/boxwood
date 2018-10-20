@@ -67,7 +67,7 @@ class TuneController extends Controller
         ->diff($tune_dancer)
         ->diff($song_gregor)
         ->diff($song_michi)
-        ->diff($tune_guenther);
+        ->diff($song_guenther);
         return view('tunes.tunestats', 
             ['flagged'=>$tunes_to_exclude,
              'song_gregor'=>$song_gregor,
