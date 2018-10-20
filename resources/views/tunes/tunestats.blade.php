@@ -20,7 +20,7 @@
                  'Sonstige' =>$tune_remainder,
                  'Tänzer Sets' =>$tune_dancer,
                  'Flagged as problematic'=>$flagged] as $heading=>$tunes)
-                <h2>{{$heading}}</h2>
+                <h2>{{$heading}}: {{$tunes->count()}} Tunes</h2>
                     <table class="table table-striped">
                         <thead>
                         <tr>
