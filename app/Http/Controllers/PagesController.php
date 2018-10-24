@@ -12,9 +12,14 @@ class PagesController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function index()
+    public function infos()
     {
         $pages = Page::where('tags', '=', 'informationen')->get();
+        return view('pages_index', ['pages'=>$pages]);
+    }
+    public function index()
+    {
+        $pages = Page::all();
         return view('pages_index', ['pages'=>$pages]);
     }
     public function show($id){
