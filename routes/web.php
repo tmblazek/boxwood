@@ -25,6 +25,9 @@
 Route::get('/presse', function (){
     return view('presse', ['test'=>'test']);
 });
+Route::get('/stpatricksnight', function (){
+    return view('stpatricksnight2019', ['test'=>'test']);
+});
 Route::get('/', function () {
     $band_bio = DB::table('biographies')->where('frontpage', 'true')->first();
     $recordings = DB::table('recordings')->where('order', '>', '0')->get();
@@ -32,16 +35,16 @@ Route::get('/', function () {
 	$konzerte = DB::table('konzerte')->where('public', 'true')->where('hidden', 'false')->where('start_t', '>=', date('Y-m-d') )->orderBy('start_t', 'asc')->take(3);
     return view('welcome', ['konzerte' => $konzerte->get(), 'body_class'=>'header-collapse', 'announcements'=>$announcements, 'band_bio'=>$band_bio, 'recordings'=>$recordings]);
 });
-Route::get('/stpatricksnight', function () {
+/*Route::get('/stpatricksnight', function () {
    $blog = DB::table('pages')->where('id', 14)->first();
    //$blog->content = emails_html_safe($blog->content);
    $body_class = "";
    return view('pages_show', ['page'=> $blog]);
-});
+   });*/
 Route::get('foo', 'Photos\AdminController@method');
 Route::get('/musik', 'recordings@index');
 Route::get('/musik/{id}', 'recordings@show');
-Route::get('/informationen', 'PagesController@index');
+Route::get('/informationen', 'PagesController@infos');
 Route::get('/pages/{id}', 'PagesController@show');
 Route::get('/band', 'BiographiesController@band');
 
@@ -56,9 +59,11 @@ Route::middleware(['auth', 'clearance'])->group(function () {
        return view('internal_welcome');
     });
     Route::resource('/internal/konzerte', 'KonzertController');
+    Route::resource('/internal/pages', 'PagesController');
     Route::resource('/internal/users', 'UserController');
     Route::resource('/internal/announcements', 'AnnouncementController');
     Route::resource('/internal/tunes', 'TuneController');
+    Route::get('/internal/tunestats', 'TuneController@stats');
     Route::resource('/internal/setlists', 'SetlistController');
     Route::get('/internal/setlists/{id}/druckvorschau', 'SetlistController@druckvorschau');
     Route::get('/internal/setlists/{id}/michi', 'SetlistController@michi');

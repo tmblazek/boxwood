@@ -47,6 +47,42 @@ class TuneController extends Controller
             return view('tunes.michi_druckvorschau', ['tunes'=>$tunes, 'title'=>$title]);
         }
     }
+    public function stats()
+    {
+        $tunes_to_exclude =Tune::find_by_tag_string('flag|listblock');
+        $all_songs = Tune::find_by_tag_string('song');
+        $song_gregor = Tune::find_by_tag_string('gregor')->diff($tunes_to_exclude);
+        $song_michi = Tune::find_by_tag_string('michi')->diff($tunes_to_exclude);
+        $song_guenther = Tune::find_by_tag_string('guenther')->diff($tunes_to_exclude);
+        $tune_dancer = Tune::find_by_tag_string('tänzer')->diff($tunes_to_exclude);
+        $tune_reels = Tune::find_by_tag_string('reels')->diff($tunes_to_exclude)->diff($all_songs);
+        $tune_jigs = Tune::find_by_tag_string('jigs')->diff($tunes_to_exclude)->diff($all_songs);
+        $tune_polkas = Tune::find_by_tag_string('polkas')->diff($tunes_to_exclude)->diff($all_songs);
+        $tune_hornpipes = Tune::find_by_tag_string('hornpipes')->diff($tunes_to_exclude)->diff($all_songs);
+        $tune_slipjigs = Tune::find_by_tag_string('slipjigs')->diff($tunes_to_exclude)->diff($all_songs);
+        $tune_remainder = Tune::all()->diff($tune_slipjigs)
+        ->diff($tune_jigs)
+        ->diff($tune_polkas)
+        ->diff($tune_hornpipes)
+        ->diff($tune_reels)
+        ->diff($tune_dancer)
+        ->diff($song_gregor)
+        ->diff($song_michi)
+        ->diff($song_guenther)->diff($tunes_to_exclude);
+        return view('tunes.tunestats', 
+            ['flagged'=>Tune::find_by_tag_string('flag'),
+             'song_gregor'=>$song_gregor,
+             'song_michi'=>$song_michi,
+             'song_guenther'=>$song_guenther,
+             'tune_dancer'=>$tune_dancer,
+             'tune_reels'=>$tune_reels,
+             'tune_jigs'=>$tune_jigs, 
+             'tune_polkas'=>$tune_polkas,
+             'tune_hornpipes'=>$tune_hornpipes,
+             'tune_slipjigs'=>$tune_slipjigs, 
+             'tune_remainder'=>$tune_remainder
+            ]);
+    }
 
     /**
      * Show the form for creating a new resource.

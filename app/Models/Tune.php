@@ -107,7 +107,7 @@ class Tune extends Model
     }
     public static function find_by_tags($tag_name){
         if (null === Tag::where('name', $tag_name)->get()->first()){
-            return self::all()->filter(function ($t){return !(substr($t->title,0,3)=== "---");});
+            return self::all();
         }
         return self::all()->filter(function($tune) use ($tag_name) {return Tagging::tagging_exists($tag_name, $tune->id);});
     }
@@ -126,6 +126,13 @@ class Tune extends Model
         }
         $ret = $ret.']';
         return $ret;
+    }
+    public function last_used_within($date_offset) {
+        $last_use = new \DateTime($this->last_use());
+        return ($last_use->modify($date_offset)->format("Y-m-d H:i:s") >= date("Y-m-d H:i:s"));
+    }
+    public function last_use(){
+        return $this->setlists->map(function ($setlist){ return $setlist->konzert->start_t;})->max();
     }
     public function abc_for_js(){
         $abc = $this->abc;

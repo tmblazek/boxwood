@@ -1,6 +1,6 @@
 
 @if(count($konzerte)==0)
-	@if ($future==true)
+	@if (isset($future) && $future==true)
 <div class="boxed-thin"></div>
 <div class="row-fluid clearfix">
 	<div class="panel panel-default">
