@@ -59,6 +59,7 @@
 									Eintritt: <span itemprop="price">{{$konzert->price}}</span>
 								</span>
                         </h2>
+                            <h2>Termin</h2>
                                                     <div class="col-md-7">
 
                         <div class="event" itemscope itemtype="http://schema.org/MusicEvent">
@@ -128,7 +129,7 @@
 
 </div>
                     <div class="col-xs-12 col-sm-6">
-<div class="row-fluid clearfix">         <div class="col-xs-12">                   <h2>Termin</h2></div></div>
+
 
                             @unless ($konzert->dismaps)
                                 <h2>Karte</h2>
