@@ -13,7 +13,7 @@ Paddy’s Return - Pure Irish Folk Music in Wien!
     <div class="container">
       <div class="col-sm-6">
         @foreach($konzerte as $k)
-         <div>{{$k->title}}: {{is_null($k->setlist()) ? "Keine Setlist Vorhanden" : $k->setlist()->title }}
+        <div>{{$k->title}}: {{null===$k->setlist ? "Keine Setlist Vorhanden" : "Setlist Vorhanden" }}
         @endforeach
       </div>
       <div class="col-sm-6">
