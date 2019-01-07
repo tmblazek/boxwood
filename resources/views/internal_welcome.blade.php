@@ -18,7 +18,7 @@ Paddy’s Return - Pure Irish Folk Music in Wien!
       </div>
       <div class="col-sm-6">
         @foreach($tunes as $t)
-        <div>{{$t->name}}: {{$t->updated_at}}</div>
+        <div>{{$t->title}}: {{$t->updated_at}}</div>
         @endforeach
       </div>
     </div>
