@@ -93,13 +93,13 @@
                             <img class="photo" src="{{'/photos/shares/qr_'.$konzert->id.'.svg'}}" width="400px" style="max-width:80%">
                             <br>
                             <a href="{{'/files/shares/ical_'.$konzert->id.'.ics'}}">iCalendar-Download</a>
-                        </div>
+                        </div><div class="col-xs-12">
                         <h2 class="">
 									Eintritt:
                         </h2>
                           								<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
  <span itemprop="price">{{$konzert->price}}</span>
-								</span>
+								</span></div>
                         @unless (null==$konzert->plakat_file_name)
                             <div class="hidden-xs">
 
