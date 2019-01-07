@@ -54,12 +54,7 @@
                                     <div class="col-xs-12"></div>
                             {!! $konzert->dest !!}
 				</span>
-                        <h2 class="">
-								<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-									Eintritt: <span itemprop="price">{{$konzert->price}}</span>
-								</span>
-                        </h2>
-                            <h2>Termin</h2>
+          <h2>Termin</h2>
                                                     <div class="col-md-7">
 
                         <div class="event" itemscope itemtype="http://schema.org/MusicEvent">
@@ -99,6 +94,12 @@
                             <br>
                             <a href="{{'/files/shares/ical_'.$konzert->id.'.ics'}}">iCalendar-Download</a>
                         </div>
+                        <h2 class="">
+									Eintritt:
+                        </h2>
+                          								<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+ <span itemprop="price">{{$konzert->price}}</span>
+								</span>
                         @unless (null==$konzert->plakat_file_name)
                             <div class="hidden-xs">
 
