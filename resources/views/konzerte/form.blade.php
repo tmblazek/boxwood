@@ -56,11 +56,11 @@
 </div>
 <div class="form-group">
     {{ Form::label('pinned', 'pinned?') }}
-    {{ Form::checkbox('dismaps',true, null, array('class' => 'form-control')) }}
+    {{ Form::checkbox('pinned',true, null, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
     {{ Form::label('hidden', 'hidden?') }}
-    {{ Form::checkbox('dismaps',true, null, array('class' => 'form-control')) }}
+    {{ Form::checkbox('hidden',true, null, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
     {{ Form::label('public', 'public?') }}
