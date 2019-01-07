@@ -32,7 +32,7 @@
           <h2>Email Kontakt</h2>
 {{Html::mailto('info@paddysreturn.com')}}
 </div>
-<div class="col-xs12">
+<div class="col-xs-12">
           <h2>Email-Liste</h2>
                Um Benachrichtigungen per Mail zu erhalten, tragen Sie ihre Email bitte <a href="https://paddysreturn.com/mailing/?p=subscribe&id=1">hier ein</a>
                                                                                                                                                              </div>
