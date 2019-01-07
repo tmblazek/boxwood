@@ -6,7 +6,7 @@
 @section('content')
     <!-- TITLE -->
 
-    <div class="hero">
+    <div class="hero hidden-xs">
         <div class="slider">
             <ul class="slides">
                 @component('announcements.title', ['announcements'=>$announcements])
@@ -28,6 +28,14 @@
 
                         
                     </div>
+<div class="col-xs-12">
+          <h2>Email Kontakt</h2>
+{{Html::mailto('info@paddysreturn.com')}}
+</div>
+<div class="col-xs12">
+          <h2>Email-Liste</h2>
+               Um Benachrichtigungen per Mail zu erhalten, tragen Sie ihre Email bitte <a href="https://paddysreturn.com/mailing/?p=subscribe&id=1">hier ein</a>
+                                                                                                                                                             </div>
                     <div class="col-xs-12 col-sm-6 visible-xs visible-sm"><h2>Kommende Konzerte </h2>
 
                         @component('konzerte.list', ['konzerte'=>$konzerte, 'future'=>true])
@@ -61,6 +69,7 @@
                                 <i class="fa fa-link" aria-hidden="true"></i>
                                 <a href="/musik">Zu der Musiksammlung</a>
                             </div>
+                
                     </div>
 
                 </div>
@@ -87,10 +96,7 @@
 
                         </div>
 
-                <div class="col-xs-12">
-                        <h2>Email Kontakt</h2>
-                        {{Html::mailto('info@paddysreturn.com')}}
-                </div>
+                
 
                     </div>
 

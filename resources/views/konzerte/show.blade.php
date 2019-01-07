@@ -11,28 +11,42 @@
         <div class="fullwidth-block" data-bg-color="#191919">
 
             <div class="container">
+                      @can('read')
+                          <div class="btn-group">
+                                    @if(null!==$konzert->setlist)
+                                             <a href="/internal/setlists/{{$konzert->setlist->id}}">
+                                                    <div class="btn btn-primary">
+                                                              Zur Setlist
+                                                                  </div>
+                                                                  </a>
+                                                                        @else
+                                                                            <a href="/internal/setlists/create?konzert={{$konzert->id}}">
+                                                                                   <div class="btn btn-primary">
+                                                                                             Neue Setlist
+                                                                                                 </div>
+                                                                                                 </a>
+                                                                                                       @endif
+                                                                                                           </div>
+                                                                                                           @endcan
+                                                                                                               @can('write')
+                                                                                                               <div class="btn-group">
+                                                                                                                         <a href="/internal/konzerte=/{{$konzert->id}}/update">
+                                                                                                                                <div class="btn btn-primary">
+                                                                                                                                          Bearbeiten
+                                                                                                                                              </div>
+                                                                                                                                              </a>
+                                                                                                                                {{ Form::open(array('url' => 'internal/konzerte/' . $konzert->id, 'class' => 'pull-right')) }}
+        {{ Form::hidden('_method', 'DELETE') }}
+        {{ Form::submit('Delete this Tune  ', array('class' => 'btn btn-warning')) }}
+        {{ Form::close() }}
+                                                                                                                         </div>
+                                                                                                                               @endcan
 
                 <div class="row-fluid clearfix">
                     <div class="col-xs-12 col-sm-6">
                     <div class="col-xs-12">
 <h2>Informationen</h2>
-                        @can('read')
-                            <div class="btn-group">
-                                @if(null!==$konzert->setlist)
-                                    <a href="/internal/setlists/{{$konzert->setlist->id}}">
-                                        <div class="btn btn-primary">
-                                            Zur Setlist
-                                        </div>
-                                    </a>
-                                @else
-                                    <a href="/internal/setlists/create?konzert={{$konzert->id}}">
-                                        <div class="btn btn-primary">
-                                            Neue Setlist
-                                        </div>
-                                    </a>
-                                @endif
-                            </div>
-                        @endcan
+ 
 
                         <span itemprop="description">
 
@@ -45,36 +59,7 @@
 									Eintritt: <span itemprop="price">{{$konzert->price}}</span>
 								</span>
                         </h2>
-                        @unless (null==$konzert->plakat_file_name)
-                            <div class="hidden-xs">
-
-                                <h2 class="title-page"> Plakat</h2>
-                                <span class="text-center" itemprop="image">
-
-@if(false === strpos($konzert->plakat_file_name, '/photos/'))
-				<img src="{{asset('/system/konzerte/plakats/000/000/'.sprintf("%03d", $konzert->id).'/original/'.$konzert->plakat_file_name)}}"
-                     class="photo " style="max-width:80%;   display: block;
-    margin: 0 auto;">
-@else
-                                        <img src="{{asset($konzert->plakat_file_name)}}"
-                                             class="photo " style="max-width:80%;   display: block;
-    margin: 0 auto;">
-                                    @endif
-
-						<div class="text-center" style="font-size:80%">
-                            {{$konzert->photocredit}}
-                        </div>
-					</span>
-                            </div>
-                            @endunless
-
-
-                            </span>
-
-                    </div></div>
-                    <div class="col-xs-12 col-sm-6">
-<div class="row-fluid clearfix">         <div class="col-xs-12">                   <h2>Termin</h2></div></div>
-                        <div class="col-md-7">
+                                                    <div class="col-md-7">
 
                         <div class="event" itemscope itemtype="http://schema.org/MusicEvent">
 
@@ -113,7 +98,40 @@
                             <br>
                             <a href="{{'/files/shares/ical_'.$konzert->id.'.ics'}}">iCalendar-Download</a>
                         </div>
+                        @unless (null==$konzert->plakat_file_name)
+                            <div class="hidden-xs">
+
+                                <h2 class="title-page"> Plakat</h2>
+                                <span class="text-center" itemprop="image">
+
+@if(false === strpos($konzert->plakat_file_name, '/photos/'))
+				<img src="{{asset('/system/konzerte/plakats/000/000/'.sprintf("%03d", $konzert->id).'/original/'.$konzert->plakat_file_name)}}"
+                     class="photo " style="max-width:80%;   display: block;
+    margin: 0 auto;">
+@else
+                                        <img src="{{asset($konzert->plakat_file_name)}}"
+                                             class="photo " style="max-width:80%;   display: block;
+    margin: 0 auto;">
+                                    @endif
+
+						<div class="text-center" style="font-size:80%">
+                            {{$konzert->photocredit}}
+                        </div>
+					</span>
+                            </div>
+                            @endunless
+
+
+                            </span>
+
+                    </div>
+
+</div>
+                    <div class="col-xs-12 col-sm-6">
+<div class="row-fluid clearfix">         <div class="col-xs-12">                   <h2>Termin</h2></div></div>
+
                             @unless ($konzert->dismaps)
+                                <h2>Karte</h2>
                                 <iframe
                                         width="80%"
 style="   display: block;
