@@ -43,7 +43,9 @@
 					@endforeach
 				</ul>
 
-
+<div class="btn-group" role="group">
+<a href="/internal/konzerte/create"><div class="btn btn-primary"> Neues Konzert Anlegen</div></a>
+</div>
 
 			</div>
 		</div>
