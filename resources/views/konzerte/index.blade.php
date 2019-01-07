@@ -42,11 +42,11 @@
 						<li role="presentation"><a href="{{url('/konzerte?jahr='.$j)}}">{{$j}}</a></li>
 					@endforeach
 				</ul>
-
+@can('write')
 <div class="btn-group" role="group">
 <a href="/internal/konzerte/create"><div class="btn btn-primary"> Neues Konzert Anlegen</div></a>
 </div>
-
+@endcan
 			</div>
 		</div>
   </div>
