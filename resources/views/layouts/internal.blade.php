@@ -52,6 +52,8 @@
                                 <li class="menu-item {{strpos(request()->path(),'announcements')!==false ? 'current-menu-item' : ''}}"><a
                                 href="{{url('/internal/announcements')}}">Announcements</a></li>
                     @endhasrole
+                        <li class="menu-item {{strpos(request()->path(),'/internal/')!==false ? 'current-menu-item' : ''}}"><a
+                                 href="{{url('/internal/')}}">Übersicht</a></li>
                     <li class="menu-item {{strpos(request()->path(),'konzerte')!==false ? 'current-menu-item' : ''}}"><a
                                 href="{{url('/konzerte')}}">Konzerte</a></li>
                     <li class="menu-item {{strpos(request()->path(),'tunes')!==false ?  'current-menu-item' : ''}}">
