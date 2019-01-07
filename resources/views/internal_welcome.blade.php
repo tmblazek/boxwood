@@ -13,12 +13,12 @@ Paddy’s Return - Pure Irish Folk Music in Wien!
     <div class="container">
       <div class="col-sm-6">
         @foreach($konzerte as $k)
-        <div>{{$k->title}}: {{null ===$k->setlist ? "Keine Setlist Vorhanden": $k->setlist->title}}</div>
+        <div>{{$k->title}}: {{null ===$k->setlist ? "<a href=\"/internal/setlists/create?konzerte=".$k->id."\">"Keine Setlist Vorhanden, neue erstellen</a>": "<a href=\"/internal/setlists/".$k->setlist->id."\">".$k->setlist->title."</a>"}}</div>
         @endforeach
       </div>
       <div class="col-sm-6">
         @foreach($tunes as $t)
-        <div>{{$t->title}}: {{$t->updated_at}}</div>
+        <div><a href="/internal/tunes/{{$t->id}}">{{$t->title}}: {{$t->updated_at}}</a></div>
         @endforeach
       </div>
     </div>
