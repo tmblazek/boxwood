@@ -56,7 +56,7 @@ Route::middleware(['auth', 'clearance'])->group(function () {
 
         Route::get('/internal/', function () {
             $tunes = DB::table('tunes')->orderBy('updated_at', 'desc')->take(10)->get();
-            $konzerte = Konzerte::where('start_t', '>=', date('Y-m-d') )->orderBy('start_t', 'asc')->get();
+            $konzerte = App\Models\Konzerte::where('start_t', '>=', date('Y-m-d') )->orderBy('start_t', 'asc')->get();
                       
             return view('internal_welcome', ['konzerte'=>$konzerte, 'tunes'=>$tunes]);
     });
