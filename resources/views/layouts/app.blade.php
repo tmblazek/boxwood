@@ -57,7 +57,7 @@
                     <li class="menu-item {{strpos(request()->path(),'presse')!==false ?  'current-menu-item' : ''}}">
                         <a href="{{url('/presse')}}">Presse</a></li>
                     @can('read')
-                        <li class="menu-item"><a href="{{url('/internal/tunes')}}">Intern</a></li>
+                        <li class="menu-item"><a href="{{url('/internal/')}}">Intern</a></li>
                         <li class="menu-item"><a href="{{ route('logout') }}"
                                                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                         </li>
