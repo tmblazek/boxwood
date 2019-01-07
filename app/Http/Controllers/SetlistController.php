@@ -182,7 +182,7 @@ class SetlistController extends Controller
         }
 
         foreach($old_array as $index=>$old){
-            if (0 == strcmp($old, $new_array[$index]))
+            if ((sizeof($new_array) > $index) && (0 == strcmp($old, $new_array[$index])))
                 continue;
             else
                 array_push($order_changes, $this->get_tune($old));
