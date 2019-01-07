@@ -50,7 +50,7 @@ class Setlist extends Model
         return $this->belongsToMany('App\Models\Tune', 'setlists_tunes');
     }
     public function getTunesOrdered(){
-        $ids =array_map('intval', explode("tune", str_replace("|", "", $this->setlist)));
+        $ids =array_map('intval', explode("tune", str_replace(x"|", "", $this->setlist)));
         $out = new Collection();
         foreach($ids as $id){
             if ($id === 0)
