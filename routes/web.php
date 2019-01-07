@@ -55,8 +55,9 @@ Route::middleware(['auth', 'clearance'])->group(function () {
     Route::resource('recordings', 'recordings');
 
         Route::get('/internal/', function () {
-       $konzerte = [];
-       return view('internal_welcome');
+            $tunes = DB::table('tunes')->orderBy('updated_at', 'desc')->take(10);
+            $konzerte = DB::table('konzerte')->where('public', 'true')->where('hidden', 'false')->where('start_t', '>=', date('Y-m-d') )->orderBy('start_t', 'asc')->get();
+            return view('internal_welcome', 'konzerte'=>$konzerte, 'tunes'=>$tunes);
     });
     Route::resource('/internal/konzerte', 'KonzertController');
     Route::resource('/internal/pages', 'PagesController');
