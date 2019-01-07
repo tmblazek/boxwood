@@ -30,7 +30,7 @@
                                                                                                            @endcan
                                                                                                                @can('write')
                                                                                                                <div class="btn-group">
-                                                                                                                         <a href="/internal/konzerte=/{{$konzert->id}}/update">
+                                                                                                                         <a href="/internal/konzerte/{{$konzert->id}}/edit">
                                                                                                                                 <div class="btn btn-primary">
                                                                                                                                           Bearbeiten
                                                                                                                                               </div>
