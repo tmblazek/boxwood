@@ -36,6 +36,7 @@ class SetlistController extends Controller
         if (null !== request('copy')){
             $setlist = Setlist::find(request('copy'));
             $konzert = $setlist->konzert->id;
+            $k_title = null;
         }elseif (null !== request('konzert')){
             $setlist = new Setlist;
             $konzert = Konzerte::find(\request('konzert'))->id; 
