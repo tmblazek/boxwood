@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Konzerte;
 use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
@@ -46,7 +45,7 @@ class SetlistController extends Controller
             $konzert = null;
             $k_title =null;
         }
-        $konzert_list = (App\Models\Konzerte::all()->filter(function($k) use ($konzert) {return $k->setlist == null || $k->id==$konzert;})->mapWithKeys(function($k){return [$k->id => $k->title];}));
+        $konzert_list = (Konzerte::all()->filter(function($k) use ($konzert) {return $k->setlist == null || $k->id==$konzert;})->mapWithKeys(function($k){return [$k->id => $k->title];}));
         return view('setlists.create', ['setlist'=>$setlist, 'konzert'=>$k_title, 'konzert_list'=>$konzert_list]);
     }
 
@@ -88,6 +87,7 @@ class SetlistController extends Controller
     }
 
     /**
+   
      * Display the specified resource.
      *
      * @param  int  $id
@@ -117,7 +117,9 @@ class SetlistController extends Controller
         //
         $setlist = Setlist::find($id);
         $current_konzert = $setlist->konzert->title;
-        return view('setlists.edit', ['setlist'=>$setlist, 'konzert'=>$current_konzert]);
+        $konzert = $setlist->konzert->id;
+        $konzert_list = (Konzerte::all()->filter(function($k) use ($konzert) {return $k->setlist == null || $k->id==$konzert;})->mapWithKeys(function($k){return [$k->id => $k->title];}));
+        return view('setlists.edit', ['setlist'=>$setlist,'konzert_list'=>$konzert_list, 'konzert'=>$current_konzert]);
     }
 
     /**
