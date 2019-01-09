@@ -7,7 +7,7 @@
         {{ Html::ul($errors->all()) }}
         {{ Form::model($setlist, array('route' => array('setlists.update', $setlist->id), 'method' => 'PUT')) }}
         {{ Form::submit('Speichern', array('class' => 'btn btn-primary')) }}
-        @component('setlists.form', ['setlist'=>$setlist->setlist, 'title'=>$setlist->title, 'konzert'=>$konzert])
+@component('setlists.form', ['setlist'=>$setlist->setlist, 'title'=>$setlist->title, 'konzert'=>$konzert, 'konzert_list'=>$konzert_list])
         @endcomponent
         {{ Form::close() }}
     </main>

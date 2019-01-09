@@ -9,7 +9,7 @@
 
         {{ Form::submit('New Setlist!', array('class' => 'btn btn-primary')) }}
 
-        @component('setlists.form', ['setlist'=>$setlist->setlist, 'title'=>$setlist->title, 'konzert'=>$konzert])
+@component('setlists.form', ['setlist'=>$setlist->setlist, 'title'=>$setlist->title, 'konzert'=>$konzert, 'konzert_list'=>$konzert_list])
         @endcomponent
         {{ Form::close() }}
     </main>
