@@ -119,7 +119,7 @@ class SetlistController extends Controller
         $current_konzert = $setlist->konzert->title;
         $konzert = $setlist->konzert->id;
         $konzert_list = (Konzerte::all()->filter(function($k) use ($konzert) {return $k->setlist == null || $k->id==$konzert;})->mapWithKeys(function($k){return [$k->id => $k->title];}));
-        return view('setlists.edit', ['setlist'=>$setlist,'konzert_list'=>$konzert_list, 'konzert'=>$current_konzert]);
+        return view('setlists.edit', ['setlist'=>$setlist,'konzert_list'=>$konzert_list, 'konzert'=>$konzert]);
     }
 
     /**
