@@ -7,7 +7,7 @@
 <div class="col-sm-4">
     <div class="form-group">
         {{ Form::label('konzert', 'Konzert') }}
-        {{ Form::select('konzert', (App\Models\Konzerte::all()->filter(function($k) use ($konzert) {return $k->setlist == null || $k->id==$konzert;})->mapWithKeys(function($k){return [$k->id => $k->title];})),$konzert, array('class' => 'form-control')) }}
+        {{ Form::select('konzert', $konzert_list, $konzert, array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group">

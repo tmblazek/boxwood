@@ -39,12 +39,15 @@ class SetlistController extends Controller
             $konzert = $setlist->konzert->id;
         }elseif (null !== request('konzert')){
             $setlist = new Setlist;
-            $konzert = Konzerte::find(\request('konzert'))->id;
+            $konzert = Konzerte::find(\request('konzert'))->id; 
+            $k_title = Konzerte::find(\request('konzert'))->title; 
         }else{
             $setlist = new Setlist;
             $konzert = null;
+            $k_title =null;
         }
-        return view('setlists.create', ['setlist'=>$setlist, 'konzert'=>$konzert]);
+        $konzert_list = (App\Models\Konzerte::all()->filter(function($k) use ($konzert) {return $k->setlist == null || $k->id==$konzert;})->mapWithKeys(function($k){return [$k->id => $k->title];}));
+        return view('setlists.create', ['setlist'=>$setlist, 'konzert'=>$k_title, 'konzert_list'=>$konzert_list]);
     }
 
     /**
@@ -113,7 +116,7 @@ class SetlistController extends Controller
     {
         //
         $setlist = Setlist::find($id);
-        $current_konzert = $setlist->konzert->id;
+        $current_konzert = $setlist->konzert->title;
         return view('setlists.edit', ['setlist'=>$setlist, 'konzert'=>$current_konzert]);
     }
 
@@ -136,8 +139,8 @@ class SetlistController extends Controller
         // process the login
         if ($validator->fails()) {
             return Redirect::to('internal/setlists/' . $id . '/edit')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
+                                                     ->withErrors($validator)
+                                                     ->withInput(Input::except('password'));
         } else {
             Log::error(Input::get('konzert'));
             $konzert = Konzerte::find(Input::get('konzert'));
@@ -148,7 +151,7 @@ class SetlistController extends Controller
             $additions = array();
             $order_changes = array();
             $this->record_changes($setlist->setlist, Input::get('setlist'),
-                $removals, $additions, $order_changes);
+                                  $removals, $additions, $order_changes);
 
             $setlist->setlist = Input::get('setlist');
             $setlist->title = Input::get('title');
