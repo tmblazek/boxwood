@@ -19,6 +19,7 @@
                                                                  </div>
                                                                        <main class="main">
                                                                                   <div class="fullwidth-block">
+                                                                                            <div class="text-center"><img alt="" src="/ckeditor_assets/pictures/6/content_orpheum-cropped.jpg" style="max-width:90%;" /></div>
 
                                                                                             <div class="container">
 <h2>Das Event</h2>
@@ -42,7 +43,7 @@ ungek&uuml;nstelt zu vermitteln.&nbsp;</p>
 <p>Das Repertoire der einzelnen Gruppen garantiert einen abwechslungsreichen
 Abend, der durch das Spektrum der irischen Tanz- und Musiktradition f&uuml;hrt.</p>
 
-<p>Das &bdquo;<strong>Four Star Trio</strong>&ldquo; istammt aus dem County Cork im Südwesten der grünen Insel und blickt auf knapp 30 Jahre Erfahrung in unveränderter Besetzung zurück.</p>
+<p>Das &bdquo;<strong>Four Star Trio</strong>&ldquo; stammt aus dem County Cork im Südwesten der grünen Insel und blickt auf knapp 30 Jahre Erfahrung in unveränderter Besetzung zurück.</p>
 
 <p>Die &bdquo;<strong>Shamrock Dance Company Vienna</strong>&ldquo; wiederum ist ein gro&szlig;e Irish Dance Vereinigung in Wien mit starken Kontakten Nach Irland, die schon Europameisterinnen hervorgebracht hat.</p>
 
@@ -72,7 +73,6 @@ Livemitschnitt von 2016
 <p>Im Jahr 2015 taten sich einige Folk-Musiker und irische T&auml;nzerinnen zusammen, um zum St. Patrick&#39;s Day die die St. Patrick&rsquo;s Night zu veranstalten. Unter der Moderation von Brian O&#39;Shea war das Ergebnis ein Abend voll irischer Musik, Tanz und vor allem Spa&szlig;, an dem man sich in einem irischen Pub in Dublin w&auml;hnte. Austragungsort war das Orpheum in Wien.</p>
 
 <p>Das Konzert, mit Auftritten von &bdquo;Paddy&rsquo;s Return&ldquo;, &bdquo;The Roadie Rowdy Piperband&ldquo; und Tanzshoweinlagen der &bdquo;The Shamrock Dance Company Vienna&ldquo;, war restlos ausverkauft und kam so gut an, dass noch am selben Tag beschlossen wurde, aus der Show St. Patrick&#39;s Night eine Dauereinrichtung zu machen.&nbsp;</p>
-<div class="text-center"><img alt="" src="/ckeditor_assets/pictures/6/content_orpheum-cropped.jpg" style="max-width:90%;" /></div>
 
 <h2>Buchen</h2>
 
