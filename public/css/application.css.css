@@ -279,7 +279,7 @@ table {
 /* line 1, sass/libs/_global.scss */
 body {
   background-color: #141414;
-  color: #848484;
+  color: #CCCCCC;
   font-family: "Source Sans Pro", "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 24px; }
@@ -2026,9 +2026,7 @@ body {
     counter-increment: page;
     content: counter(page); }
 
-  html, body {
-    width: 210mm;
-    height: 287mm; } }
+  html, body { } }
 .content .post {
   position: relative;
   margin-bottom: 30px;

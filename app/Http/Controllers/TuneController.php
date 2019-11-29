@@ -39,7 +39,19 @@ class TuneController extends Controller
         else{
             $title = strtoupper(app('request')->input('tag'));
         }
-        $tunes = Tune::find_by_tag_string(app('request')->input('tag'))->sortBy('title');
+        if(null== app('request')->input('tag')){
+            $filter = "alle";
+            $exclude_filter = "listblock";
+        }else{
+            $filter = app('request')->input('tag');
+            $exclude_filter = app('request')->input('exclude_tag');
+        }
+        $tunes = Tune::find_by_tag_string($filter)->sortBy('title');
+        if  (null!== $exclude_filter){
+            $remove_tag = Tune::find_by_tag_string($exclude_filter)->sortBy('title');
+            $tunes = $tunes->diff($remove_tag);
+        
+        }
         if ('true'!=app('request')->input('michi')){
         return view('tunes.druckvorschau', ['tunes'=>$tunes, 'title'=>$title]);
         }

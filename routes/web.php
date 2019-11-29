@@ -26,7 +26,7 @@ Route::get('/presse', function (){
     return view('presse', ['test'=>'test']);
 });
 Route::get('/stpatricksnight', function (){
-    return view('stpatricksnight2019', ['test'=>'test']);
+    return view('stpatricksnight2020', ['test'=>'test']);
 });
 Route::get('/', function () {
     $band_bio = DB::table('biographies')->where('frontpage', 'true')->first();

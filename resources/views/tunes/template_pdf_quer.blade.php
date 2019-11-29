@@ -2,7 +2,7 @@
 <tr style="font-weight:normal;">
 
     <th colspan="4" class="text-left" style="font-family: Glanchlo;font-size:14pt;font-weight:normal;">Tunebook Paddy's Return</th>
-    <th colspan="1" class="text-right" style="font-family: Glanchlo;font-size:14pt;font-weight:normal;"><span class="page">Seite </span></th>
+    <th colspan="1" class="text-right" style="font-family: Glanchlo;font-size:14pt;font-weight:normal;"><p id="page-number"></p></th>
 </tr>
 <tr>
 <th valign="top" width="5%" style="text-align:center;">Nr</th>
